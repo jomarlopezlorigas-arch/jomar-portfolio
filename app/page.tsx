@@ -30,14 +30,14 @@ export default function Home() {
       title="Guys and Gals Salon Booking Website"
       description="Online salon booking system"
       repo="https://github.com/Chizstic/final-proj.git"
-      image="/Guys and Gals proj.png"
+      image="public/Guys and Gals proj.png"
     />
 
         <ProjectCard
           title="Sentra - Head Monitoring System"
           description="AI cheating detection using head tracking"
           repo="https://github.com/YojLuengas/Setra-Cheating-Detection.git"
-          image="/Sentra.png"
+          image="public/Sentra.png"
         />
           </div>
         </section>
