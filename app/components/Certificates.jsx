@@ -5,23 +5,18 @@ import Image from "next/image";
 
 const certificates = [
   {
-    title: "Full Stack Web Development",
-    issuer: "Udemy",
-    image: "/certificates/cert1.jpg",
-    file: "/certificates/cert1.pdf",
+    title: "Introduction to SQL",
+    issuer: "SIMPLILEARN",
+    image: "/sqlcert.jpg",
+    file: "/Sql Cert.pdf",
   },
   {
-    title: "React Native Development",
+    title: "Build Complete CMS Blog in PHP & MySQL Bootstrap & PDO",
     issuer: "Coursera",
-    image: "/certificates/cert2.jpg",
-    file: "/certificates/cert2.pdf",
+    image: "/PHP.jpg",
+    file: "/IMcert.pdf",
   },
-  {
-    title: "Firebase & Cloud Database",
-    issuer: "Google",
-    image: "/certificates/cert3.jpg",
-    file: "/certificates/cert3.pdf",
-  },
+ 
 ];
 
 export default function Certificates() {

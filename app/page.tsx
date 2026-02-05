@@ -4,13 +4,13 @@ import Certificates from "./components/Certificates";
 import Skills from "./components/Skills";
 import ProjectCard from "./components/ProjectCard";
 import Reveal from "./components/Reveal";
-import ParticlesBackground from "./components/ParticlesBackground";
+
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <ParticlesBackground />
+
 
       <main className="text-foreground">
 
@@ -26,9 +26,19 @@ export default function Home() {
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <ProjectCard title="Workout App" description="React Native fitness app." />
-            <ProjectCard title="Spin Reward System" description="Firebase gamified rewards." />
-            <ProjectCard title="Portfolio Website" description="Next.js animated portfolio." />
+           <ProjectCard
+      title="Guys and Gals Salon Booking Website"
+      description="Online salon booking system"
+      repo="https://github.com/Chizstic/final-proj.git"
+      image="/Guys and Gals proj.png"
+    />
+
+        <ProjectCard
+          title="Sentra - Head Monitoring System"
+          description="AI cheating detection using head tracking"
+          repo="https://github.com/YojLuengas/Setra-Cheating-Detection.git"
+          image="/Sentra.png"
+        />
           </div>
         </section>
 
