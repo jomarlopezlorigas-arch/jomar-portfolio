@@ -14,53 +14,47 @@ export default function Hero() {
 
     if (tiltNode) {
       VanillaTilt.init(tiltNode, {
-        max: 20,
+        max: 15,
         speed: 400,
-        glare: true,
-        "max-glare": 0.4,
-        scale: 1.05,
+        scale: 1.03,
       });
     }
 
-    // ✅ Prevent memory leaks
     return () => tiltNode?.vanillaTilt?.destroy();
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
 
-      {/* Aurora Background Glow */}
-      <div className="absolute w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full top-20 left-10 animate-pulse" />
-      <div className="absolute w-[400px] h-[400px] bg-purple-500/20 blur-[120px] rounded-full bottom-10 right-10 animate-pulse" />
+      {/* Soft Background Glow */}
+      <div className="absolute w-[450px] h-[450px] bg-primary/15 blur-[120px] rounded-full top-20 left-20" />
+      <div className="absolute w-[350px] h-[350px] bg-purple-500/15 blur-[120px] rounded-full bottom-10 right-20" />
 
-      <div className="grid md:grid-cols-2 gap-12 items-center z-10">
+      <div className="grid md:grid-cols-2 gap-16 items-center z-10">
 
         {/* Profile Image */}
         <motion.div
           ref={photoRef}
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative group"
+          transition={{ duration: 0.8 }}
+          className="flex justify-center"
         >
-          {/* Glow Ring */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-purple-500 blur-xl opacity-60 group-hover:opacity-90 transition" />
-
           <Image
             src="/profile.png"
-            alt="Jomar Lorigas Profile Photo"
-            width={280}
-            height={280}
+            alt="Jomar Lorigas"
+            width={300}
+            height={300}
             priority
-            className="relative rounded-full border-4 border-primary shadow-2xl"
+            className="rounded-full border-4 border-primary shadow-xl"
           />
         </motion.div>
 
         {/* Text Content */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Hi, I'm{" "}
@@ -69,30 +63,36 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 text-gray-400 text-lg max-w-xl leading-relaxed">
-            Full-Stack Developer passionate about building modern web and mobile
+          <p className="mt-6 text-gray-400 text-lg max-w-lg leading-relaxed">
+            Full-Stack Developer building modern, scalable web and mobile
             applications using React, Next.js, React Native, and Firebase.
-            BSIT Candidate 2026.
           </p>
 
-          {/* Action Buttons */}
+          {/* Tech Tags */}
+          <div className="flex flex-wrap gap-3 mt-6">
+            {["React", "Next.js", "Firebase", "React Native", "Tailwind"].map(
+              (tech) => (
+                <span
+                  key={tech}
+                  className="px-4 py-1 text-sm rounded-full bg-white/5 border border-white/10"
+                >
+                  {tech}
+                </span>
+              )
+            )}
+          </div>
+
+          {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="bg-primary px-7 py-3 rounded-xl font-semibold text-black hover:scale-105 hover:shadow-lg hover:shadow-primary/40 transition"
+              className="bg-primary px-7 py-3 rounded-xl font-semibold text-black hover:scale-105 transition"
             >
               View Projects
             </a>
-
+        
             <a
-              href="#contact"
-              className="border border-primary px-7 py-3 rounded-xl hover:bg-primary hover:text-black transition"
-            >
-              Contact Me
-            </a>
-
-            <a
-              href="/Jomar-Lorigas-CV.pdf"
+              href="/Resume.pdf"
               download
               className="border border-purple-400 px-7 py-3 rounded-xl hover:bg-purple-500 hover:text-black transition"
             >
@@ -100,44 +100,25 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* ⭐ SOCIAL CONTACTS */}
+          {/* Social Icons */}
           <div className="flex gap-5 mt-8">
-
-            {/* GitHub */}
             <a
               href="https://github.com/jomarlopezlorigas-arch"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="p-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-primary hover:text-black transition hover:scale-110 hover:shadow-lg hover:shadow-primary/40"
+              className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:text-black transition"
             >
               <Github size={22} />
             </a>
 
-            {/* Email */}
             <a
               href="mailto:jomarlopezl@gmail.com"
-              aria-label="Send Email"
-              className="p-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-primary hover:text-black transition hover:scale-110 hover:shadow-lg hover:shadow-primary/40"
+              className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:text-black transition"
             >
               <Mail size={22} />
             </a>
-
           </div>
-
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 12, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
-      >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2" />
-        </div>
-      </motion.div>
     </section>
   );
 }

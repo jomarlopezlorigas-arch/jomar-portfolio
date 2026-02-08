@@ -6,27 +6,30 @@ import Image from "next/image";
 const certificates = [
   {
     title: "Introduction to SQL",
-    issuer: "SIMPLILEARN",
+    issuer: "Simplilearn",
     image: "/sqlcert.jpg",
-    file: "/sqlcert.pdf",
+    file: "/Sql Cert.pdf",
   },
   {
-    title: "Build Complete CMS Blog in PHP & MySQL Bootstrap & PDO",
+    title: "Build CMS Blog using PHP & MySQL",
     issuer: "Coursera",
     image: "/PHP.jpg",
     file: "/IMcert.pdf",
   },
- 
 ];
 
 export default function Certificates() {
   return (
-    <section id="certificates" className="max-w-6xl mx-auto px-6 py-28">
-      <h2 className="text-4xl font-bold text-center mb-14">
-        Certificates
+    <section id="certificates" className="max-w-6xl mx-auto px-6 py-28 relative">
+
+      {/* Background Glow */}
+      <div className="absolute w-[400px] h-[400px] bg-primary/10 blur-[120px] rounded-full top-0 left-10" />
+
+      <h2 className="text-4xl font-bold text-center mb-16">
+        My <span className="text-primary">Certificates</span>
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-2 gap-10">
         {certificates.map((cert, index) => (
           <motion.div
             key={index}
@@ -34,35 +37,36 @@ export default function Certificates() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: true }}
-            className="bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-primary/30 hover:shadow-xl transition"
+            className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md"
           >
-            {/* Certificate Image */}
-            <div className="relative h-52">
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden">
               <Image
                 src={cert.image}
                 alt={cert.title}
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-110 transition duration-700"
               />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <a
+                  href={cert.file}
+                  target="_blank"
+                  className="px-6 py-2 bg-primary text-black rounded-xl font-semibold hover:scale-105 transition"
+                >
+                  View Certificate
+                </a>
+              </div>
             </div>
 
-            {/* Certificate Info */}
+            {/* Content */}
             <div className="p-6">
-              <h3 className="text-xl font-semibold">
-                {cert.title}
-              </h3>
+              <h3 className="text-xl font-semibold">{cert.title}</h3>
 
-              <p className="text-gray-400 mt-2 text-sm">
-                Issued by {cert.issuer}
-              </p>
-
-              <a
-                href={cert.file}
-                target="_blank"
-                className="inline-block mt-4 text-primary font-medium hover:underline"
-              >
-                View Certificate →
-              </a>
+              <span className="inline-block mt-2 px-3 py-1 text-xs bg-primary/20 text-primary rounded-full">
+                {cert.issuer}
+              </span>
             </div>
           </motion.div>
         ))}
@@ -70,3 +74,4 @@ export default function Certificates() {
     </section>
   );
 }
+  

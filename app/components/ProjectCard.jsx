@@ -4,22 +4,12 @@ import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 import Image from "next/image";
 
-/**
- * @typedef {Object} ProjectCardProps
- * @property {string} title
- * @property {string} description
- * @property {string} repo
- * @property {string | import("next/image").StaticImageData} image
- */
-
-/**
- * @param {ProjectCardProps} props
- */
 export default function ProjectCard({
-  title = "Project",
-  description = "No description available.",
-  repo = "#",
+  title,
+  description,
+  repo,
   image,
+  tech = [],
 }) {
   const tiltRef = useRef(null);
 
@@ -27,50 +17,58 @@ export default function ProjectCard({
     if (!tiltRef.current) return;
 
     VanillaTilt.init(tiltRef.current, {
-      max: 15,
+      max: 12,
       speed: 400,
-      glare: true,
-      "max-glare": 0.3,
+      scale: 1.03,
     });
 
-    // ✅ Cleanup to avoid memory leak
-    return () => {
-      if (tiltRef.current?.vanillaTilt) {
-        tiltRef.current.vanillaTilt.destroy();
-      }
-    };
+    return () => tiltRef.current?.vanillaTilt?.destroy();
   }, []);
 
-  // ✅ Fallback image if invalid or missing
-  const safeImage = image || "/placeholder.png";
-
-  // ✅ Safe repo link
-  const safeRepo = repo && repo.startsWith("http") ? repo : "#";
-
   return (
-    <a href={safeRepo} target="_blank" rel="noopener noreferrer">
-      <div
-        ref={tiltRef}
-        className="bg-card rounded-2xl overflow-hidden hover:shadow-primary/30 hover:shadow-xl transition"
-      >
-        {/* Image */}
-        <div className="relative h-48 w-full">
-          <Image
-            src={safeImage}
-            alt={title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 33vw"
-            priority={false}
-          />
-        </div>
+    <div
+      ref={tiltRef}
+      className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md hover:border-primary transition"
+    >
+      {/* Image */}
+      <div className="relative h-48 overflow-hidden">
+        <Image
+          src={image || "/placeholder.png"}
+          alt={title}
+          fill
+          className="object-cover group-hover:scale-110 transition duration-700"
+        />
 
-        {/* Content */}
-        <div className="p-6">
-          <h3 className="text-xl font-semibold">{title}</h3>
-          <p className="text-text-sub mt-3">{description}</p>
+        {/* Overlay CTA */}
+        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+          <a
+            href={repo}
+            target="_blank"
+            className="px-6 py-2 bg-primary text-black rounded-xl font-semibold hover:scale-105 transition"
+          >
+            View Project
+          </a>
         </div>
       </div>
-    </a>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-xl font-semibold">{title}</h3>
+
+        <p className="text-gray-400 mt-3 text-sm">{description}</p>
+
+        {/* Tech Tags */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {tech.map((t) => (
+            <span
+              key={t}
+              className="px-3 py-1 text-xs bg-primary/20 text-primary rounded-full"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
