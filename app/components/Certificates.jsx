@@ -7,14 +7,14 @@ const certificates = [
   {
     title: "Introduction to SQL",
     issuer: "Simplilearn",
-    image: "Certificates/sqlcert.jpg",
-    file: "CertificatUpdatedes/Sql Cert.pdf",
+    image: "/Certificates/sqlcert.jpg",
+    file: "/Certificates/Sql Cert.pdf",
   },
   {
     title: "Build CMS Blog using PHP & MySQL",
     issuer: "Coursera",
-    image: "Certificates/PHP.jpg",
-    file: "Certificates/IMcert.pdf",
+    image: "/Certificates/PHP.jpg",
+    file: "/Certificates/IMcert.pdf",
   },
 ];
 

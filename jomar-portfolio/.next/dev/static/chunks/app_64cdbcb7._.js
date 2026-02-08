@@ -620,14 +620,14 @@ const certificates = [
     {
         title: "Introduction to SQL",
         issuer: "Simplilearn",
-        image: "/sqlcert.jpg",
-        file: "/Sql Cert.pdf"
+        image: "/Certificates/sqlcert.jpg",
+        file: "/Certificates/Sql Cert.pdf"
     },
     {
         title: "Build CMS Blog using PHP & MySQL",
         issuer: "Coursera",
-        image: "/PHP.jpg",
-        file: "/IMcert.pdf"
+        image: "/Certificates/PHP.jpg",
+        file: "/Certificates/IMcert.pdf"
     }
 ];
 function Certificates() {
@@ -1224,7 +1224,7 @@ function Home() {
                                         title: "Guys and Gals Salon Booking Website",
                                         description: "Online salon booking system",
                                         repo: "https://github.com/Chizstic/final-proj.git",
-                                        image: "/Guys and Gals proj.png"
+                                        image: "/Projects/Guys and Gals proj.png"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
                                         lineNumber: 43,
@@ -1234,7 +1234,7 @@ function Home() {
                                         title: "Sentra - Head Monitoring System",
                                         description: "AI cheating detection using head tracking",
                                         repo: "https://github.com/YojLuengas/Setra-Cheating-Detection.git",
-                                        image: "/Sentra.png"
+                                        image: "/Projects/Sentra.png"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
                                         lineNumber: 50,
