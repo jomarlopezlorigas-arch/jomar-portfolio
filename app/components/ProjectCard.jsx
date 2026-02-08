@@ -9,33 +9,46 @@ import Image from "next/image";
  * @property {string} title
  * @property {string} description
  * @property {string} repo
- * @property {string} image
+ * @property {string | import("next/image").StaticImageData} image
  */
 
 /**
  * @param {ProjectCardProps} props
  */
 export default function ProjectCard({
-  title,
-  description,
-  repo,
+  title = "Project",
+  description = "No description available.",
+  repo = "#",
   image,
 }) {
   const tiltRef = useRef(null);
 
   useEffect(() => {
-    if (tiltRef.current) {
-      VanillaTilt.init(tiltRef.current, {
-        max: 15,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.3,
-      });
-    }
+    if (!tiltRef.current) return;
+
+    VanillaTilt.init(tiltRef.current, {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.3,
+    });
+
+    // ✅ Cleanup to avoid memory leak
+    return () => {
+      if (tiltRef.current?.vanillaTilt) {
+        tiltRef.current.vanillaTilt.destroy();
+      }
+    };
   }, []);
 
+  // ✅ Fallback image if invalid or missing
+  const safeImage = image || "/placeholder.png";
+
+  // ✅ Safe repo link
+  const safeRepo = repo && repo.startsWith("http") ? repo : "#";
+
   return (
-    <a href={repo} target="_blank" rel="noopener noreferrer">
+    <a href={safeRepo} target="_blank" rel="noopener noreferrer">
       <div
         ref={tiltRef}
         className="bg-card rounded-2xl overflow-hidden hover:shadow-primary/30 hover:shadow-xl transition"
@@ -43,10 +56,12 @@ export default function ProjectCard({
         {/* Image */}
         <div className="relative h-48 w-full">
           <Image
-            src={image}
+            src={safeImage}
             alt={title}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority={false}
           />
         </div>
 
