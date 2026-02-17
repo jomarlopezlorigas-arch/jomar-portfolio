@@ -8,12 +8,12 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
 
-  // Detect scroll shadow
+  // Detect scroll shadow and active section
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ["projects", "certificates"];
+      const sections = ["about", "projects", "certificates"];
       sections.forEach((id) => {
         const section = document.getElementById(id);
         if (section) {
@@ -32,9 +32,9 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: "About", id: "about" },
     { name: "Projects", id: "projects" },
     { name: "Certificates", id: "certificates" },
-   
   ];
 
   return (

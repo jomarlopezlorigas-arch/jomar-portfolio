@@ -12,7 +12,7 @@ const certificates = [
   },
   {
     title: "Build CMS Blog using PHP & MySQL",
-    issuer: "Coursera",
+    issuer: "Udemy",
     image: "/Certificates/PHP.jpg",
     file: "/Certificates/IMcert.pdf",
   },

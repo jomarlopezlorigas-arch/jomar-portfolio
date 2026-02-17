@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import OpeningAnimation from "./components/OpeningAnimation";
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Certificates from "./components/Certificates";
+import About from "./components/About";          // <-- already imported
 import Skills from "./components/Skills";
 import ProjectCard from "./components/ProjectCard";
 import Reveal from "./components/Reveal";
+import Certificates from "./components/Certificates";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ export default function Home() {
 
       <main className="text-foreground">
         <Hero />
-
+        <About />          {/* <-- About section added here */}
         <Skills />
 
         <section id="projects" className="max-w-6xl mx-auto px-6 py-28">

@@ -5,13 +5,22 @@ import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Github, Mail } from "lucide-react";
+import { 
+  FaReact, 
+  FaNodeJs, 
+  FaDatabase 
+} from "react-icons/fa";
+import { 
+  SiNextdotjs, 
+  SiFirebase, 
+  SiTailwindcss 
+} from "react-icons/si";
 
 export default function Hero() {
   const photoRef = useRef(null);
 
   useEffect(() => {
     const tiltNode = photoRef.current;
-
     if (tiltNode) {
       VanillaTilt.init(tiltNode, {
         max: 15,
@@ -19,9 +28,18 @@ export default function Hero() {
         scale: 1.03,
       });
     }
-
     return () => tiltNode?.vanillaTilt?.destroy();
   }, []);
+
+  // Tech stack with icons and names
+  const techStack = [
+    { name: "React", icon: <FaReact className="text-blue-400" size={24} /> },
+    { name: "Next.js", icon: <SiNextdotjs className="text-white" size={22} /> },
+    { name: "Firebase", icon: <SiFirebase className="text-yellow-500" size={22} /> },
+    { name: "React Native", icon: <FaReact className="text-blue-400" size={24} /> },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" size={22} /> },
+    { name: "Node.js", icon: <FaNodeJs className="text-green-500" size={24} /> },
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
@@ -68,29 +86,21 @@ export default function Hero() {
             applications using React, Next.js, React Native, and Firebase.
           </p>
 
-          {/* Tech Tags */}
-          <div className="flex flex-wrap gap-3 mt-6">
-            {["React", "Next.js", "Firebase", "React Native", "Tailwind"].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-1 text-sm rounded-full bg-white/5 border border-white/10"
-                >
-                  {tech}
-                </span>
-              )
-            )}
+          {/* Tech Icons */}
+          <div className="flex flex-wrap gap-4 mt-6">
+            {techStack.map((tech) => (
+              <span
+                key={tech.name}
+                title={tech.name}
+                className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition cursor-pointer"
+              >
+                {tech.icon}
+              </span>
+            ))}
           </div>
 
           {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="bg-primary px-7 py-3 rounded-xl font-semibold text-black hover:scale-105 transition"
-            >
-              View Projects
-            </a>
-        
             <a
               href="/Resume.pdf"
               download
@@ -109,7 +119,6 @@ export default function Hero() {
             >
               <Github size={22} />
             </a>
-
             <a
               href="mailto:jomarlopezl@gmail.com"
               className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:text-black transition"
