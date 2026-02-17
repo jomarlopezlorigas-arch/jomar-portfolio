@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Cpu, Globe } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -10,7 +10,6 @@ export default function Navbar() {
   const [active, setActive] = useState("");
   const [time, setTime] = useState("");
 
-  // System Clock Effect
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' }));
@@ -21,7 +20,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
       const sections = ["about", "projects", "certificates"];
       const currentSection = sections.find((id) => {
         const section = document.getElementById(id);
@@ -52,41 +50,25 @@ export default function Navbar() {
           : "py-6 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      {/* 1. Added relative to this container to anchor the absolute center */}
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative h-10">
         
-        {/* LOGO / SYSTEM ID */}
-        <div className="flex items-center gap-4">
-          <div className="relative">
-            <h1 className="font-mono font-black text-xl tracking-tighter text-white group cursor-pointer">
-              JOMAR<span className="text-blue-500">.</span>SYS
-            </h1>
-            <motion.div 
-              className="absolute -bottom-1 left-0 h-[2px] bg-blue-500"
-              initial={{ width: 0 }}
-              animate={{ width: scrolled ? "100%" : "40%" }}
-            />
-          </div>
-          
-          {/* Metadata hidden on mobile */}
-          <div className="hidden lg:flex items-center gap-3 border-l border-white/10 pl-4 font-mono text-[10px] text-gray-500">
-            <div className="flex items-center gap-1">
-              <Globe size={10} className="text-blue-500" />
-              <span>127.0.0.1</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Cpu size={10} className="text-purple-500" />
-              <span>v2.0.26</span>
-            </div>
+        {/* LEFT: LOGO / SYSTEM ID */}
+        <div className="flex items-center gap-2">
+          <Terminal size={18} className="text-blue-500" />
+          <div className="flex flex-col">
+            <span className="text-[10px] font-mono font-bold text-white tracking-tighter leading-none">JOMAR.SYS</span>
+            <span className="text-[8px] font-mono text-blue-500/60 leading-none">v2.0.4</span>
           </div>
         </div>
 
-        {/* DESKTOP NAV (SMOOTH SLIDER) */}
-        <div className="hidden md:flex items-center gap-2 p-1 bg-white/5 rounded-full border border-white/5">
+        {/* CENTER: DESKTOP NAV (Perfectly Centered) */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 p-1 bg-white/5 rounded-full border border-white/5 backdrop-blur-sm">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`relative px-6 py-2 text-xs font-mono uppercase tracking-widest transition-colors duration-300 ${
+              className={`relative px-5 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] transition-colors duration-300 ${
                 active === link.id ? "text-white" : "text-gray-500 hover:text-gray-300"
               }`}
             >
@@ -102,44 +84,41 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* SYSTEM TIME & TOGGLE */}
-        <div className="flex items-center gap-6">
-          <div className="hidden sm:block font-mono text-xs text-gray-400 tracking-widest bg-white/5 px-3 py-1 rounded border border-white/10">
+        {/* RIGHT: SYSTEM TIME & TOGGLE */}
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:block font-mono text-[10px] text-gray-400 tracking-widest bg-white/5 px-3 py-1.5 rounded border border-white/10">
             {time} <span className="animate-pulse">_</span>
           </div>
 
           <button
-            className="p-2 rounded-lg bg-white/5 border border-white/10 md:hidden text-white"
+            className="p-2 rounded-lg bg-white/5 border border-white/10 md:hidden text-white hover:bg-white/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU (FULL OVERLAY) */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -10 }}
             className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-2xl border-b border-white/10 md:hidden"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link, i) => (
-                <motion.a
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-mono uppercase tracking-tighter text-gray-400 hover:text-blue-500 transition-colors"
+                  className="flex items-center justify-between text-xl font-mono uppercase tracking-tighter text-gray-400 hover:text-blue-500 py-2 border-b border-white/5"
                 >
-                  <span className="text-sm mr-4 text-gray-700">0{i+1}</span>
-                  {link.name}
-                </motion.a>
+                  <span>{link.name}</span>
+                  <span className="text-[10px] text-gray-700">0{i+1}</span>
+                </a>
               ))}
             </div>
           </motion.div>
