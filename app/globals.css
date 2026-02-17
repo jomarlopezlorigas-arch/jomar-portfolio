@@ -9,52 +9,77 @@
   --color-text-sub: var(--text-sub);
 }
 
-
-/* ===============================
-   GLOBAL COLOR SYSTEM
-================================ */
 :root {
-  --background: #0b0f19;
-  --foreground: #f9fafb;
+  /* Deep Obsidian Palette */
+  --background: #030408; 
+  --foreground: #f0f2f5;
 
-  --card: #111827;
-  --primary: #6366f1;
-  --secondary: #22d3ee;
-  --text-sub: #9ca3af;
+  --card: rgba(13, 17, 28, 0.7);
+  --primary: #4f46e5;
+  --secondary: #0ea5e9;
+  --text-sub: #94a3b8;
 }
-
-
-
 
 body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
-
-  /* Animated Gradient Layers */
-  background:
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.25), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.2), transparent 40%),
-    linear-gradient(135deg, #0b0f19, #070a13, #05070f);
-
-  background-size: 200% 200%;
-  animation: gradientMove 18s ease infinite;
-
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--background);
+  
+  /* Layer 1: Base Depth */
+  /* Layer 2: Top Left Primary Glow */
+  /* Layer 3: Bottom Right Secondary Glow */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(3, 4, 8, 1) 0%, rgba(1, 2, 5, 1) 100%);
+
+  /* Subtle Noise Texture to prevent color banding */
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.02;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
   scroll-behavior: smooth;
 }
 
 /* ===============================
-   SELECTION STYLE
+   SMOOTH SYSTEM COMPONENTS
 ================================ */
-::selection {
-  background: var(--primary);
-  color: white;
-}
-section {
-  position: relative;
-  z-index: 1;
-}
+
+/* Card with "Glass" depth */
 .bg-card {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(12px);
+  background: var(--card);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Smooth selection to match branding */
+::selection {
+  background: rgba(79, 70, 229, 0.3);
+  color: var(--foreground);
+}
+
+/* Custom Scrollbar for IT aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

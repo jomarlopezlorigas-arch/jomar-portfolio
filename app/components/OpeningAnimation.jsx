@@ -1,118 +1,143 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export default function OpeningAnimation() {
-  const [showSubtitle, setShowSubtitle] = useState(false);
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+";
 
-  // Show subtitle after name animation
+export default function TechCloudIntro() {
+  const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const targetText = "JOMAR.DEV";
+
+  // Loading Progress Logic
   useEffect(() => {
-    const timer = setTimeout(() => setShowSubtitle(true), 1500);
-    return () => clearTimeout(timer);
+    const interval = setInterval(() => {
+      setProgress((prev) => (prev >= 100 ? 100 : prev + Math.floor(Math.random() * 12)));
+    }, 120);
+    const timer = setTimeout(() => setLoading(false), 4000);
+    return () => { clearInterval(interval); clearTimeout(timer); };
   }, []);
 
-  const name = "Jomar.dev".split("");
+  // Glitch Effect Logic
+  useEffect(() => {
+    let iteration = 0;
+    const interval = setInterval(() => {
+      setDisplayText(
+        targetText.split("")
+          .map((letter, index) => {
+            if (index < iteration) return targetText[index];
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          })
+          .join("")
+      );
+      if (iteration >= targetText.length) clearInterval(interval);
+      iteration += 1 / 3;
+    }, 50);
+    return () => clearInterval(interval);
+  }, []);
 
-  // Floating code symbols (developer vibe)
-  const particles = [
-    { char: "{", top: "15%", left: "10%", delay: 0.2 },
-    { char: "}", top: "70%", left: "85%", delay: 0.5 },
-    { char: "<", top: "80%", left: "20%", delay: 0.1 },
-    { char: "/>", top: "25%", left: "80%", delay: 0.4 },
-    { char: "()", top: "60%", left: "5%", delay: 0.3 },
-    { char: "[]", top: "10%", left: "70%", delay: 0.6 },
-    { char: "=>", top: "45%", left: "90%", delay: 0.2 },
+  const logs = [
+    "[SYS] INITIALIZING_ENCRYPTION_LAYER",
+    "[NET] ESTABLISHING_SECURE_HANDSHAKE",
+    "[DEV] COMPILING_REACT_RESOURCES",
+    "[UX] RENDERING_VISUAL_INTERFACE",
   ];
 
   return (
-    <motion.div
-      className="fixed inset-0 flex items-center justify-center overflow-hidden z-50"
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Dark gradient background (original) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" />
-
-      {/* Floating Glow Circles (original colors) */}
-      <motion.div
-        className="absolute w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"
-        animate={{ y: [0, -40, 0], x: [0, 40, 0] }}
-        transition={{ repeat: Infinity, duration: 8 }}
-      />
-      <motion.div
-        className="absolute w-72 h-72 bg-purple-500 rounded-full blur-3xl opacity-20"
-        animate={{ y: [0, 40, 0], x: [0, -40, 0] }}
-        transition={{ repeat: Infinity, duration: 7 }}
-      />
-
-      {/* Floating code symbols */}
-      {particles.map((p, i) => (
+    <AnimatePresence>
+      {loading && (
         <motion.div
-          key={i}
-          className="absolute text-white/10 text-4xl font-mono font-bold"
-          style={{ top: p.top, left: p.left }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: p.delay, duration: 0.8 }}
-          whileInView={{
-            y: [0, -20, 0, 20, 0],
-            x: [0, 15, -10, -15, 0],
-            rotate: [0, 10, -10, 5, 0],
-            transition: {
-              duration: 10 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
+          exit={{ opacity: 0, scale: 1.05 }}
+          className="fixed inset-0 z-[999] bg-black flex flex-col justify-between p-6 md:p-12 overflow-hidden"
         >
-          {p.char}
-        </motion.div>
-      ))}
-
-      {/* Main content */}
-      <div className="relative text-center z-10">
-        {/* Animated name with staggered letters */}
-        <div className="flex justify-center text-6xl md:text-7xl font-bold text-white mb-4">
-          {name.map((letter, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 50, rotateZ: -10 }}
-              animate={{ opacity: 1, y: 0, rotateZ: 0 }}
-              transition={{
-                delay: index * 0.08,
-                type: "spring",
-                stiffness: 200,
-                damping: 15,
-              }}
-              className="inline-block"
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
-          ))}
-        </div>
-
-        {/* Subtitle */}
-        {showSubtitle && (
+          {/* Background Gradients (From your original code) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-100" />
+          
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-gray-400 text-lg md:text-xl tracking-widest">
-              full-stack developer • ui designer • problem solver
-            </p>
-            {/* Decorative line with primary color */}
-            <motion.div
-              className="w-24 h-1 bg-gradient-to-r from-primary to-purple-400 mx-auto mt-6 rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ delay: 0.2, duration: 0.15}}
-            />
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
+            className="absolute w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] top-[-10%] left-[-10%]"
+            animate={{ y: [0, 50, 0], x: [0, 30, 0] }}
+            transition={{ repeat: Infinity, duration: 10 }}
+          />
+          <motion.div
+            className="absolute w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] bottom-[-5%] right-[-5%]"
+            animate={{ y: [0, -30, 0], x: [0, -50, 0] }}
+            transition={{ repeat: Infinity, duration: 8 }}
+          />
+
+          {/* Top Info Bar */}
+          <div className="relative z-10 flex justify-between font-mono text-[10px] text-blue-400/60 tracking-[0.2em]">
+            <div className="space-y-1">
+              <p>DEPLOYMENT_ID: 0x82FA9</p>
+              <p>STATUS: SYSTEM_CHECK_IN_PROGRESS</p>
+            </div>
+            <div className="text-right">
+              <p>LOC: 14.5995° N, 120.9842° E</p>
+              <p>REL: 2026.1.0</p>
+            </div>
+          </div>
+
+          {/* Center Content */}
+          <div className="relative z-10">
+            <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter font-mono">
+              {displayText}
+            </h1>
+            
+            <div className="mt-4 space-y-1">
+              {logs.map((log, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, x: -5 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.3 }}
+                  className="text-xs font-mono text-gray-500 flex items-center gap-2"
+                >
+                  <span className="w-1 h-1 bg-blue-500 rounded-full animate-pulse" />
+                  {log}
+                </motion.p>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Control Panel */}
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+            <div className="col-span-2 space-y-3">
+              <div className="flex justify-between font-mono text-[10px] text-blue-300">
+                <span className="flex items-center gap-2">
+                  <motion.span 
+                    animate={{ opacity: [1, 0, 1] }} 
+                    transition={{ repeat: Infinity, duration: 1 }}
+                  >
+                    ●
+                  </motion.span>
+                  UPLOADING_PORTFOLIO_CORE
+                </span>
+                <span>{progress}%</span>
+              </div>
+              
+              {/* Sleek Progress Bar */}
+              <div className="h-1 w-full bg-white/5 border border-white/10 overflow-hidden">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  className="h-full bg-gradient-to-r from-blue-500 to-purple-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                />
+              </div>
+            </div>
+
+            <div className="text-right hidden md:block">
+              <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-relaxed">
+                Full-Stack Architecture<br />
+                Cloud Infrastructure / UI/UX
+              </p>
+            </div>
+          </div>
+
+          {/* Scanning Scanline overlay */}
+          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] z-20 bg-[length:100%_4px]" />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

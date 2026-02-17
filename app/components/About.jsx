@@ -1,120 +1,137 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { 
-  FaUserGraduate, 
-  FaProjectDiagram, 
-  FaClock, 
-  FaHeart 
+  FaServer, 
+  FaNetworkWired, 
+  FaMicrochip, 
+  FaCodeBranch,
+  FaTerminal
 } from "react-icons/fa";
 
 export default function About() {
-  // Animation variants
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5 }
   };
 
+  // IT-Centric Stats
   const stats = [
-    { icon: <FaClock className="text-2xl text-primary" />, value: "4+", label: "Years Experience" },
-    { icon: <FaProjectDiagram className="text-2xl text-primary" />, value: "10+", label: "Projects Completed" },
-    { icon: <FaHeart className="text-2xl text-primary" />, value: "100%", label: "Passion" },
+    { icon: <FaServer className="text-blue-400" />, value: "4+ Yrs", label: "Infrastructure" },
+    { icon: <FaCodeBranch className="text-purple-400" />, value: "15+", label: "Prod Deployments" },
+    { icon: <FaNetworkWired className="text-cyan-400" />, value: "99.9%", label: "System Uptime" },
   ];
 
   return (
-    <section id="about" className="py-28 px-6 max-w-6xl mx-auto relative">
-      {/* Background blur effect */}
-      <div className="absolute w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full -top-20 -left-20 -z-10" />
-      <div className="absolute w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full bottom-0 right-0 -z-10" />
-
-      <motion.h2 
-        className="text-4xl font-bold text-center mb-16"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        About <span className="text-primary">Me</span>
-      </motion.h2>
-
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        {/* Left column - Profile image */}
+    <section id="about" className="py-28 px-6 max-w-7xl mx-auto relative overflow-hidden">
+      {/* Background architectural elements */}
+      <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent" />
+      
+      <div className="grid lg:grid-cols-12 gap-16 items-start">
+        
+        {/* LEFT: THE TECHNICAL STACK VISUAL (5 Columns) */}
         <motion.div
-          className="relative"
+          className="lg:col-span-5 relative"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-3xl overflow-hidden border-4 border-white/10 bg-white/5 backdrop-blur-md p-2 shadow-2xl">
-            {/* Replace with your actual photo */}
-            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-purple-400/20 to-primary/20 flex items-center justify-center">
-              <span className="text-7xl">👨‍💻</span>
+          {/* Main Container - Framed like a System Component */}
+          <div className="relative group">
+            <div className="relative z-10 aspect-square rounded-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden p-6 shadow-2xl">
+              {/* Terminal Header */}
+              <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                </div>
+                <span className="text-[10px] font-mono text-gray-500 ml-2 uppercase tracking-widest">sys_profile.sh</span>
+              </div>
+
+              {/* IT Content Simulation */}
+              <div className="space-y-4 font-mono text-sm leading-relaxed text-blue-100/80">
+                <p className="text-blue-400 italic font-bold">// The Full-Stack Engineer</p>
+                <p className="pl-2 border-l border-blue-500/30">
+                  <span className="text-purple-400">const</span> skills = [<br />
+                  &nbsp;&nbsp;"Cloud Infrastructure",<br />
+                  &nbsp;&nbsp;"System Architecture",<br />
+                  &nbsp;&nbsp;"Secure Auth Implementation",<br />
+                  &nbsp;&nbsp;"DB Optimization"<br />
+                  ];
+                </p>
+                <div className="pt-8 flex justify-center">
+                   <FaMicrochip className="text-8xl text-blue-500/10 animate-pulse" />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Glass Tag */}
+            <div className="absolute -bottom-6 -right-6 bg-blue-600/10 backdrop-blur-xl border border-blue-500/20 p-6 rounded-2xl z-20 hidden md:block">
+              <p className="text-4xl font-bold text-white mb-1">04</p>
+              <p className="text-[10px] font-mono text-blue-400 uppercase tracking-tighter">Years in Tech Industry</p>
             </div>
           </div>
-          {/* Decorative gradient ring */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-400 rounded-3xl blur opacity-30 -z-10" />
         </motion.div>
 
-        {/* Right column - Bio & Stats */}
+        {/* RIGHT: THE CONTENT (7 Columns) */}
         <motion.div
-          className="space-y-6"
+          className="lg:col-span-7 space-y-8"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-semibold">
-            I'm <span className="text-primary">Jomar Lorigas</span>
-          </h3>
+          <div className="space-y-4">
+            <h2 className="text-sm font-mono text-blue-400 uppercase tracking-[0.4em]">Section_02: Introduction</h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              Solving problems with <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                Technical Precision.
+              </span>
+            </h3>
+          </div>
           
-          <p className="text-gray-300 leading-relaxed">
-            A passionate full-stack developer with over 4 years of experience building 
-            modern web applications. I specialize in React, Next.js, and Node.js, 
-            creating seamless user experiences from frontend to backend.
-          </p>
-          
-          <p className="text-gray-300 leading-relaxed">
-            I believe in clean code, continuous learning, and turning complex problems 
-            into simple, elegant solutions. When I'm not coding, you'll find me 
-            exploring new technologies or contributing to open source.
-          </p>
+          <div className="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+            <p>
+              I am an <span className="text-white font-medium">Information Technology Engineer</span> specializing in full-stack architecture. My approach combines the rigor of IT infrastructure with the fluidity of modern web development.
+            </p>
+            <p>
+              I don't just write code; I design systems. Whether it's optimizing <span className="text-blue-300">Firebase clusters</span>, architecting <span className="text-purple-300">Next.js micro-frontends</span>, or securing <span className="text-cyan-300">Node.js environments</span>, my focus is on scalability and high-availability.
+            </p>
+          </div>
 
-          {/* Stats grid - first two in two columns */}
-          <div className="grid grid-cols-2 gap-4 pt-4">
-            {stats.slice(0, 2).map((stat, index) => (
+          {/* Stats Grid */}
+          <div className="grid grid-cols-3 gap-6 pt-6">
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md text-center"
+                className="group relative p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all"
                 variants={fadeInUp}
                 initial="initial"
                 whileInView="animate"
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="flex justify-center mb-2">{stat.icon}</div>
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-gray-400">{stat.label}</div>
+                <div className="text-3xl mb-3 opacity-80 group-hover:scale-110 transition-transform">{stat.icon}</div>
+                <div className="text-2xl font-black text-white">{stat.value}</div>
+                <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">{stat.label}</div>
               </motion.div>
             ))}
           </div>
 
-          {/* Passion card - centered full width */}
-          <motion.div
-            className="flex justify-center pt-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md text-center w-full max-w-xs">
-              <div className="flex justify-center mb-2">{stats[2].icon}</div>
-              <div className="text-2xl font-bold text-white">{stats[2].value}</div>
-              <div className="text-xs text-gray-400">{stats[2].label}</div>
-            </div>
-          </motion.div>
+          <div className="pt-8">
+            <button className="flex items-center gap-3 font-mono text-xs text-blue-400 hover:text-white transition-colors group">
+              <FaTerminal />
+              <span>READ_FULL_DOCUMENTATION.PDF</span>
+              <motion.span 
+                animate={{ x: [0, 5, 0] }} 
+                transition={{ repeat: Infinity, duration: 1.5 }}
+              >→</motion.span>
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -7,7 +7,6 @@ import Hero from "./components/Hero";
 import About from "./components/About";          // <-- already imported
 import Skills from "./components/Skills";
 import ProjectCard from "./components/ProjectCard";
-import Reveal from "./components/Reveal";
 import Certificates from "./components/Certificates";
 
 export default function Home() {
@@ -33,12 +32,6 @@ export default function Home() {
         <Skills />
 
         <section id="projects" className="max-w-6xl mx-auto px-6 py-28">
-          <Reveal>
-            <h2 className="text-4xl font-bold mb-14 text-center">
-              Projects
-            </h2>
-          </Reveal>
-
           <div className="grid md:grid-cols-3 gap-8">
             <ProjectCard
               title="Guys and Gals Salon Booking Website"
