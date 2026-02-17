@@ -673,387 +673,557 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 __turbopack_context__.s([
     "default",
-    ()=>TerminalOverload
+    ()=>PacketRunner
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/activity.js [app-client] (ecmascript) <export default as Activity>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$triangle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertTriangle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/triangle-alert.js [app-client] (ecmascript) <export default as AlertTriangle>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shield-check.js [app-client] (ecmascript) <export default as ShieldCheck>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flame$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Flame$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/flame.js [app-client] (ecmascript) <export default as Flame>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/zap.js [app-client] (ecmascript) <export default as Zap>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cpu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Cpu$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/cpu.js [app-client] (ecmascript) <export default as Cpu>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/refresh-cw.js [app-client] (ecmascript) <export default as RefreshCw>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldAlert$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shield-alert.js [app-client] (ecmascript) <export default as ShieldAlert>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$terminal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Terminal$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/terminal.js [app-client] (ecmascript) <export default as Terminal>");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
 ;
-function TerminalOverload({ onClose }) {
+function PacketRunner({ onClose }) {
     _s();
-    const [nodes, setNodes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(Array(12).fill({
-        heat: 0
-    }));
+    // Game Constants
+    const GRAVITY = 0.55;
+    const JUMP_STRENGTH = -7.5;
+    const PIPE_SPEED = 4.5;
+    const PIPE_SPAWN_RATE = 1600;
+    const BIRD_SIZE = 34;
+    const PIPE_WIDTH = 70;
+    const GAP_SIZE = 170;
+    const [birdY, setBirdY] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(250);
+    const [velocity, setVelocity] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [pipes, setPipes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [score, setScore] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [lives, setLives] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(3);
     const [isGameOver, setIsGameOver] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Difficulty multiplier
-    const isOverloaded = score >= 1000;
-    // 1. DYNAMIC HEAT LOGIC
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "TerminalOverload.useEffect": ()=>{
+    const [hasStarted, setHasStarted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const requestRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])();
+    const jump = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "PacketRunner.useCallback[jump]": ()=>{
             if (isGameOver) return;
-            // Base interval is 800ms. 
-            // If score > 1000, it drops to ~300ms (Very Fast)
-            const speed = isOverloaded ? Math.max(400 - score / 20, 200) : 800 - Math.min(score / 10, 400);
-            const heatInterval = setInterval({
-                "TerminalOverload.useEffect.heatInterval": ()=>{
-                    setNodes({
-                        "TerminalOverload.useEffect.heatInterval": (prevNodes)=>{
-                            const newNodes = [
-                                ...prevNodes
-                            ];
-                            const randomIndex = Math.floor(Math.random() * newNodes.length);
-                            if (newNodes[randomIndex].heat < 3) {
-                                newNodes[randomIndex] = {
-                                    ...newNodes[randomIndex],
-                                    heat: newNodes[randomIndex].heat + 1
-                                };
-                            }
-                            return newNodes;
-                        }
-                    }["TerminalOverload.useEffect.heatInterval"]);
-                }
-            }["TerminalOverload.useEffect.heatInterval"], speed);
-            return ({
-                "TerminalOverload.useEffect": ()=>clearInterval(heatInterval)
-            })["TerminalOverload.useEffect"];
+            if (!hasStarted) setHasStarted(true);
+            setVelocity(JUMP_STRENGTH);
         }
-    }["TerminalOverload.useEffect"], [
+    }["PacketRunner.useCallback[jump]"], [
         isGameOver,
-        score,
-        isOverloaded
+        hasStarted
     ]);
-    // 2. MELTDOWN CHECK
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "TerminalOverload.useEffect": ()=>{
-            const overheatingNodes = nodes.filter({
-                "TerminalOverload.useEffect": (n)=>n.heat >= 3
-            }["TerminalOverload.useEffect"]).length;
-            // DIFFICULTY SPIKE: At 1k score, you can only handle 2 critical nodes. 
-            // The 3rd one causes a life loss.
-            const limit = isOverloaded ? 3 : 4;
-            if (overheatingNodes >= limit && !isGameOver) {
-                setLives({
-                    "TerminalOverload.useEffect": (l)=>{
-                        if (l <= 1) setIsGameOver(true);
-                        return l - 1;
+        "PacketRunner.useEffect": ()=>{
+            const handleKeyDown = {
+                "PacketRunner.useEffect.handleKeyDown": (e)=>{
+                    if (e.code === "Space") {
+                        e.preventDefault();
+                        jump();
                     }
-                }["TerminalOverload.useEffect"]);
-                setNodes(Array(12).fill({
-                    heat: 0
-                }));
-            }
+                }
+            }["PacketRunner.useEffect.handleKeyDown"];
+            window.addEventListener("keydown", handleKeyDown);
+            return ({
+                "PacketRunner.useEffect": ()=>window.removeEventListener("keydown", handleKeyDown)
+            })["PacketRunner.useEffect"];
         }
-    }["TerminalOverload.useEffect"], [
-        nodes,
-        isGameOver,
-        isOverloaded
+    }["PacketRunner.useEffect"], [
+        jump
     ]);
-    const patchNode = (index)=>{
-        if (nodes[index].heat > 0) {
-            // Bonus points for higher heat
-            setScore((s)=>s + nodes[index].heat * 50);
-            setNodes((prev)=>{
-                const next = [
-                    ...prev
-                ];
-                next[index] = {
-                    heat: 0
-                };
-                return next;
-            });
+    const update = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "PacketRunner.useCallback[update]": ()=>{
+            if (!hasStarted || isGameOver) return;
+            setBirdY({
+                "PacketRunner.useCallback[update]": (y)=>{
+                    const newY = y + velocity;
+                    if (newY > 460 || newY < 0) {
+                        setIsGameOver(true);
+                        return y;
+                    }
+                    return newY;
+                }
+            }["PacketRunner.useCallback[update]"]);
+            setVelocity({
+                "PacketRunner.useCallback[update]": (v)=>v + GRAVITY
+            }["PacketRunner.useCallback[update]"]);
+            setPipes({
+                "PacketRunner.useCallback[update]": (prevPipes)=>{
+                    const nextPipes = prevPipes.map({
+                        "PacketRunner.useCallback[update].nextPipes": (p)=>({
+                                ...p,
+                                x: p.x - PIPE_SPEED
+                            })
+                    }["PacketRunner.useCallback[update].nextPipes"]).filter({
+                        "PacketRunner.useCallback[update].nextPipes": (p)=>p.x > -PIPE_WIDTH
+                    }["PacketRunner.useCallback[update].nextPipes"]);
+                    for (const p of nextPipes){
+                        const withinX = 60 + BIRD_SIZE > p.x && 60 < p.x + PIPE_WIDTH;
+                        const hitTop = birdY < p.topHeight;
+                        const hitBottom = birdY + BIRD_SIZE > p.topHeight + GAP_SIZE;
+                        if (withinX && (hitTop || hitBottom)) setIsGameOver(true);
+                    }
+                    return nextPipes;
+                }
+            }["PacketRunner.useCallback[update]"]);
+            requestRef.current = requestAnimationFrame(update);
         }
-    };
+    }["PacketRunner.useCallback[update]"], [
+        hasStarted,
+        isGameOver,
+        velocity,
+        birdY
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "PacketRunner.useEffect": ()=>{
+            requestRef.current = requestAnimationFrame(update);
+            return ({
+                "PacketRunner.useEffect": ()=>cancelAnimationFrame(requestRef.current)
+            })["PacketRunner.useEffect"];
+        }
+    }["PacketRunner.useEffect"], [
+        update
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "PacketRunner.useEffect": ()=>{
+            if (!hasStarted || isGameOver) return;
+            const timer = setInterval({
+                "PacketRunner.useEffect.timer": ()=>{
+                    const topHeight = Math.floor(Math.random() * (300 - 100)) + 50;
+                    setPipes({
+                        "PacketRunner.useEffect.timer": (prev)=>[
+                                ...prev,
+                                {
+                                    x: 600,
+                                    topHeight,
+                                    id: Date.now()
+                                }
+                            ]
+                    }["PacketRunner.useEffect.timer"]);
+                    setScore({
+                        "PacketRunner.useEffect.timer": (s)=>s + 1
+                    }["PacketRunner.useEffect.timer"]);
+                }
+            }["PacketRunner.useEffect.timer"], PIPE_SPAWN_RATE);
+            return ({
+                "PacketRunner.useEffect": ()=>clearInterval(timer)
+            })["PacketRunner.useEffect"];
+        }
+    }["PacketRunner.useEffect"], [
+        hasStarted,
+        isGameOver
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `fixed inset-0 z-[999] flex items-center justify-center p-4 font-mono transition-colors duration-500 ${isOverloaded ? 'bg-red-950/90' : 'bg-black/95'} backdrop-blur-2xl`,
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                children: isOverloaded && !isGameOver && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                    initial: {
-                        opacity: 0
-                    },
-                    animate: {
-                        opacity: [
-                            0,
-                            1,
-                            0
-                        ]
-                    },
-                    transition: {
-                        repeat: Infinity,
-                        duration: 1
-                    },
-                    className: "absolute top-10 text-red-500 font-black tracking-[1em] uppercase text-xl pointer-events-none",
-                    children: "⚠ System_Overload_Detected ⚠"
+        className: "fixed inset-0 z-[999] flex items-center justify-center p-4 font-mono bg-black/95 backdrop-blur-2xl",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            onClick: jump,
+            className: `relative w-full max-w-[600px] h-[500px] bg-[#020202] border-2 rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer shadow-[0_0_50px_rgba(59,130,246,0.1)] ${isGameOver ? 'border-red-600' : 'border-blue-500/40'}`,
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-0 pointer-events-none z-40 opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"
                 }, void 0, false, {
                     fileName: "[project]/app/components/CyberDefense.jsx",
-                    lineNumber: 76,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/components/CyberDefense.jsx",
-                lineNumber: 74,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: `w-full max-w-2xl bg-[#0a0a0a] border ${isOverloaded ? 'border-red-500 shadow-[0_0_80px_rgba(239,68,68,0.3)]' : 'border-blue-500/30'} rounded-2xl overflow-hidden transition-all`,
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: `p-6 border-b border-white/10 flex justify-between items-center ${isOverloaded ? 'bg-red-500/10' : 'bg-blue-500/5'}`,
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-6",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: `text-[10px] uppercase tracking-widest ${isOverloaded ? 'text-red-400' : 'text-blue-400'}`,
-                                                children: isOverloaded ? "Emergency_Power" : "System_Load"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                                lineNumber: 93,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex gap-1 mt-1",
-                                                children: [
-                                                    ...Array(3)
-                                                ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: `w-6 h-2 rounded-full ${i < lives ? isOverloaded ? "bg-red-500 shadow-[0_0_10px_red]" : "bg-blue-500 shadow-[0_0_10px_#3b82f6]" : "bg-white/10"}`
-                                                    }, i, false, {
-                                                        fileName: "[project]/app/components/CyberDefense.jsx",
-                                                        lineNumber: 98,
-                                                        columnNumber: 19
-                                                    }, this))
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                                lineNumber: 96,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/components/CyberDefense.jsx",
-                                        lineNumber: 92,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-[10px] text-purple-400 uppercase tracking-widest",
-                                                children: "Efficiency"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                                lineNumber: 103,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xl font-bold text-white tracking-tighter",
-                                                children: score
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                                lineNumber: 104,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/components/CyberDefense.jsx",
-                                        lineNumber: 102,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                lineNumber: 91,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: onClose,
-                                className: "p-2 hover:bg-white/10 rounded-full transition-colors text-gray-400 hover:text-white",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {}, void 0, false, {
+                    lineNumber: 90,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-0 opacity-20 pointer-events-none",
+                    style: {
+                        backgroundImage: 'radial-gradient(#1e40af 1px, transparent 1px)',
+                        backgroundSize: '30px 30px'
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/app/components/CyberDefense.jsx",
+                    lineNumber: 93,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute top-0 w-full p-6 flex justify-between items-start z-50 pointer-events-none",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col gap-1",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center gap-2 text-blue-400",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$terminal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Terminal$3e$__["Terminal"], {
+                                            size: 14
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/CyberDefense.jsx",
+                                            lineNumber: 101,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-[10px] tracking-widest font-bold uppercase",
+                                            children: "Packet_Injection_Status"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/CyberDefense.jsx",
+                                            lineNumber: 102,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/components/CyberDefense.jsx",
-                                    lineNumber: 107,
-                                    columnNumber: 133
+                                    lineNumber: 100,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "text-2xl font-black text-white italic",
+                                    children: score.toString().padStart(4, '0')
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 104,
+                                    columnNumber: 13
                                 }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/components/CyberDefense.jsx",
+                            lineNumber: 99,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: (e)=>{
+                                e.stopPropagation();
+                                onClose();
+                            },
+                            className: "p-2 bg-white/5 border border-white/10 rounded-full hover:bg-red-500/20 hover:border-red-500/50 transition-all pointer-events-auto",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                size: 18,
+                                className: "text-white"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/CyberDefense.jsx",
-                                lineNumber: 107,
-                                columnNumber: 11
+                                lineNumber: 112,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/CyberDefense.jsx",
+                            lineNumber: 108,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/components/CyberDefense.jsx",
+                    lineNumber: 98,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    animate: {
+                        y: birdY,
+                        rotate: velocity * 2.5
+                    },
+                    className: "absolute left-[60px] z-30",
+                    style: {
+                        width: BIRD_SIZE,
+                        height: BIRD_SIZE
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-full h-full bg-blue-500 rounded-md shadow-[0_0_20px_#3b82f6] flex items-center justify-center relative border border-blue-400/50",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cpu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Cpu$3e$__["Cpu"], {
+                                size: 20,
+                                className: "text-white"
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/CyberDefense.jsx",
+                                lineNumber: 123,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute -left-4 w-6 h-1 bg-gradient-to-r from-transparent to-blue-400 blur-sm opacity-50"
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/CyberDefense.jsx",
+                                lineNumber: 125,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/CyberDefense.jsx",
-                        lineNumber: 90,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "p-10 grid grid-cols-3 md:grid-cols-4 gap-4 relative",
+                        lineNumber: 122,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/components/CyberDefense.jsx",
+                    lineNumber: 117,
+                    columnNumber: 9
+                }, this),
+                pipes.map((pipe)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
-                            nodes.map((node, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
-                                    whileTap: {
-                                        scale: 0.9
-                                    },
-                                    onClick: ()=>patchNode(i),
-                                    className: `relative aspect-square rounded-xl border-2 flex items-center justify-center transition-all duration-150 ${node.heat === 0 ? "border-white/5 bg-white/5 text-white/10" : node.heat === 1 ? "border-yellow-500/50 bg-yellow-500/10 text-yellow-500" : node.heat === 2 ? "border-orange-500 bg-orange-500/20 text-orange-500 animate-pulse" : "border-red-500 bg-red-600 text-white animate-bounce shadow-[0_0_20px_#ef4444] z-10"}`,
-                                    children: node.heat === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__["ShieldCheck"], {
-                                        size: 20
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute bg-[#1a0000] border-b-4 border-red-600 group",
+                                style: {
+                                    left: pipe.x,
+                                    top: 0,
+                                    width: PIPE_WIDTH,
+                                    height: pipe.topHeight
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute inset-0 bg-red-600/10 animate-pulse"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CyberDefense.jsx",
-                                        lineNumber: 124,
-                                        columnNumber: 34
-                                    }, this) : node.heat === 3 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flame$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Flame$3e$__["Flame"], {
-                                        size: 28,
-                                        className: "animate-pulse"
+                                        lineNumber: 137,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] text-red-500 font-bold opacity-40 uppercase",
+                                        children: "Firewall"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CyberDefense.jsx",
-                                        lineNumber: 125,
-                                        columnNumber: 34
-                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__["Activity"], {
-                                        size: 20
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/components/CyberDefense.jsx",
-                                        lineNumber: 125,
-                                        columnNumber: 82
+                                        lineNumber: 138,
+                                        columnNumber: 15
                                     }, this)
-                                }, i, false, {
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/components/CyberDefense.jsx",
+                                lineNumber: 133,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute bg-[#1a0000] border-t-4 border-red-600",
+                                style: {
+                                    left: pipe.x,
+                                    top: pipe.topHeight + GAP_SIZE,
+                                    width: PIPE_WIDTH,
+                                    height: 500 - (pipe.topHeight + GAP_SIZE)
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute inset-0 bg-red-600/10 animate-pulse"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/CyberDefense.jsx",
+                                        lineNumber: 145,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute top-2 left-1/2 -translate-x-1/2 text-[8px] text-red-500 font-bold opacity-40 uppercase",
+                                        children: "Firewall"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/CyberDefense.jsx",
+                                        lineNumber: 146,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/components/CyberDefense.jsx",
+                                lineNumber: 141,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, pipe.id, true, {
+                        fileName: "[project]/app/components/CyberDefense.jsx",
+                        lineNumber: 131,
+                        columnNumber: 11
+                    }, this)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                    children: [
+                        !hasStarted && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                            initial: {
+                                opacity: 0
+                            },
+                            animate: {
+                                opacity: 1
+                            },
+                            className: "absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-[60] backdrop-blur-sm",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "p-4 rounded-full bg-blue-500/10 border border-blue-500/30 mb-6",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"], {
+                                        size: 40,
+                                        className: "text-blue-400 animate-pulse"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/CyberDefense.jsx",
+                                        lineNumber: 156,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
                                     fileName: "[project]/app/components/CyberDefense.jsx",
-                                    lineNumber: 113,
-                                    columnNumber: 13
-                                }, this)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                                children: isGameOver && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    initial: {
-                                        opacity: 0,
-                                        scale: 0.9
-                                    },
-                                    animate: {
-                                        opacity: 1,
-                                        scale: 1
-                                    },
-                                    className: "absolute inset-0 bg-red-950/95 flex flex-col items-center justify-center z-50 text-center p-6",
+                                    lineNumber: 155,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-3xl font-black text-white tracking-tighter italic uppercase",
+                                    children: "Network Breach"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 158,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-blue-400/60 text-[10px] tracking-[0.3em] mt-2 mb-8",
+                                    children: "CLICK TO INITIALIZE DATA STREAM"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 159,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex gap-4 text-[9px] text-gray-500 uppercase font-mono",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$triangle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertTriangle$3e$__["AlertTriangle"], {
-                                            className: "text-white w-16 h-16 mb-4 animate-bounce"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/components/CyberDefense.jsx",
-                                            lineNumber: 136,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-3xl font-black text-white uppercase italic",
-                                            children: "Critical Failure"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/components/CyberDefense.jsx",
-                                            lineNumber: 137,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-red-200 mt-2 mb-8 uppercase text-xs tracking-[0.3em]",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "flex items-center gap-1",
                                             children: [
-                                                "Hardware Meltdown @ ",
-                                                score,
-                                                " Units"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-1.5 h-1.5 rounded-full bg-blue-500"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                                    lineNumber: 161,
+                                                    columnNumber: 59
+                                                }, this),
+                                                " Jump: Space/Click"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/CyberDefense.jsx",
-                                            lineNumber: 138,
+                                            lineNumber: 161,
                                             columnNumber: 17
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>{
-                                                setNodes(Array(12).fill({
-                                                    heat: 0
-                                                }));
-                                                setScore(0);
-                                                setLives(3);
-                                                setIsGameOver(false);
-                                            },
-                                            className: "px-10 py-4 bg-white text-red-600 font-black rounded-full hover:scale-105 transition-transform uppercase italic",
-                                            children: "Force_Reboot"
-                                        }, void 0, false, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "flex items-center gap-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-1.5 h-1.5 rounded-full bg-red-500"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                                    lineNumber: 162,
+                                                    columnNumber: 59
+                                                }, this),
+                                                " Avoid: Firewalls"
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/app/components/CyberDefense.jsx",
-                                            lineNumber: 139,
+                                            lineNumber: 162,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/CyberDefense.jsx",
-                                    lineNumber: 131,
+                                    lineNumber: 160,
                                     columnNumber: 15
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                lineNumber: 129,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/components/CyberDefense.jsx",
-                        lineNumber: 111,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "p-4 bg-black border-t border-white/5 flex justify-between items-center text-[9px] font-mono",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `flex items-center gap-2 ${isOverloaded ? 'text-red-500 animate-pulse' : 'text-gray-500'}`,
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: `w-1.5 h-1.5 rounded-full ${isOverloaded ? 'bg-red-500' : 'bg-green-500'}`
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/components/CyberDefense.jsx",
-                                        lineNumber: 153,
-                                        columnNumber: 13
-                                    }, this),
-                                    isOverloaded ? "STATUS: HARDWARE_MAX_TEMP" : "STATUS: NORMAL_OPS"
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                lineNumber: 152,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-gray-600 uppercase",
-                                children: "Ver_2.0.Overload"
-                            }, void 0, false, {
-                                fileName: "[project]/app/components/CyberDefense.jsx",
-                                lineNumber: 156,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/components/CyberDefense.jsx",
-                        lineNumber: 151,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/components/CyberDefense.jsx",
-                lineNumber: 87,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/components/CyberDefense.jsx",
+                            lineNumber: 154,
+                            columnNumber: 13
+                        }, this),
+                        isGameOver && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                            initial: {
+                                opacity: 0,
+                                y: 20
+                            },
+                            animate: {
+                                opacity: 1,
+                                y: 0
+                            },
+                            className: "absolute inset-0 flex flex-col items-center justify-center bg-red-950/90 z-[70] p-8 text-center",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldAlert$3e$__["ShieldAlert"], {
+                                    size: 60,
+                                    className: "text-white mb-6 animate-bounce"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 169,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-5xl font-black text-white italic uppercase tracking-tighter",
+                                    children: "Connection Lost"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 170,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-red-300 text-xs tracking-[0.4em] mt-2 mb-10 opacity-70",
+                                    children: "PACKET_INTERCEPTED // STATUS_TERMINATED"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 171,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-black/40 border border-white/10 p-4 rounded-xl mb-8 w-full max-w-[240px]",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-[10px] text-gray-400 uppercase",
+                                            children: "Total Bits Sent"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/CyberDefense.jsx",
+                                            lineNumber: 174,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-3xl font-bold text-white tracking-tight",
+                                            children: score
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/CyberDefense.jsx",
+                                            lineNumber: 175,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 173,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: (e)=>{
+                                        e.stopPropagation();
+                                        setBirdY(250);
+                                        setVelocity(0);
+                                        setPipes([]);
+                                        setScore(0);
+                                        setIsGameOver(false);
+                                        setHasStarted(false);
+                                    },
+                                    className: "group flex items-center gap-3 px-10 py-4 bg-white text-red-600 font-black rounded-full hover:scale-105 transition-all shadow-2xl active:scale-95",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {
+                                            size: 20,
+                                            className: "group-hover:rotate-180 transition-transform duration-500"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/CyberDefense.jsx",
+                                            lineNumber: 182,
+                                            columnNumber: 17
+                                        }, this),
+                                        "RE-INITIALIZE"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/components/CyberDefense.jsx",
+                                    lineNumber: 178,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/components/CyberDefense.jsx",
+                            lineNumber: 168,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/components/CyberDefense.jsx",
+                    lineNumber: 152,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/components/CyberDefense.jsx",
+            lineNumber: 85,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/app/components/CyberDefense.jsx",
-        lineNumber: 71,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }
-_s(TerminalOverload, "wRkVMwTO++4WIqNnFtisZHqqwe0=");
-_c = TerminalOverload;
+_s(PacketRunner, "n/mzGXmqQT5nife8KBkhNvS1LbM=");
+_c = PacketRunner;
 var _c;
-__turbopack_context__.k.register(_c, "TerminalOverload");
+__turbopack_context__.k.register(_c, "PacketRunner");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
