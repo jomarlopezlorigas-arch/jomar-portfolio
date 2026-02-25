@@ -36,7 +36,7 @@ export default function Home() {
             <ProjectCard
               title="Guys and Gals Salon Booking Website"
               description="Online salon booking system"
-              repo="https://github.com/Chizstic/final-proj.git"
+              repo="https://guys-gals-salon.vercel.app/"
               image="/Projects/Guys and Gals proj.png"
             />
 
