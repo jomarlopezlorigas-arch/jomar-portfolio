@@ -43,7 +43,7 @@ export default function Home() {
             <ProjectCard
               title="Sentra - Head Monitoring System"
               description="AI cheating detection using head tracking"
-            
+              repo=""
               image="/Projects/Sentra.png"
             />
           </div>
