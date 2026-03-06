@@ -65,7 +65,7 @@ export default function ProjectCard({
             target="_blank"
             className="flex items-center gap-2 px-6 py-2 bg-white text-black text-sm font-bold rounded-full hover:scale-105 transition shadow-lg"
           >
-            <Github size={16} /> Source Code
+            <Github size={16} /> Project Link
           </a>
         </div>
       </div>
