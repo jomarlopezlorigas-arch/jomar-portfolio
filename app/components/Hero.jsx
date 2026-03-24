@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Github, Mail, Code2, Terminal, Cpu } from "lucide-react";
+import { Github, Mail, Code2, Terminal } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiFirebase, SiTailwindcss, SiPostgresql } from "react-icons/si";
 
@@ -41,7 +41,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-[#020202]">
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-transparent">
       
       {/* --- IT INFRASTRUCTURE BACKGROUND --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
