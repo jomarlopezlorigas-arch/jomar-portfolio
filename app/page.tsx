@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // animation duration
+    }, 3000); // animation duration
 
     return () => clearTimeout(timer);
   }, []);

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import ExpandableCardGrid from "./ui/expandable-card-grid";
 
@@ -16,11 +17,11 @@ const certificates = [
     footer: "ISSUER://SIMPLILEARN",
     tags: ["SQL", "Databases", "Queries"],
     primaryAction: {
-      label: "Open PDF",
+      label: "Open Certificate",
       href: "/Certificates/Sql Cert.pdf",
     },
     secondaryAction: {
-      label: "View Credential",
+      label: "View PDF",
       href: "/Certificates/Sql Cert.pdf",
     },
     content: (
@@ -59,11 +60,11 @@ const certificates = [
     footer: "ISSUER://UDEMY",
     tags: ["PHP", "MySQL", "CMS"],
     primaryAction: {
-      label: "Open PDF",
+      label: "Open Certificate",
       href: "/Certificates/IMcert.pdf",
     },
     secondaryAction: {
-      label: "View Credential",
+      label: "View PDF",
       href: "/Certificates/IMcert.pdf",
     },
     content: (
@@ -100,7 +101,13 @@ export default function Certificates() {
     >
       <div className="pointer-events-none absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[140px]" />
 
-      <div className="relative z-10 mb-16 text-center lg:text-left">
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55 }}
+        viewport={{ once: true, amount: 0.25 }}
+        className="relative z-10 mb-16 text-center lg:text-left"
+      >
         <div className="flex items-center justify-center lg:justify-start gap-2 text-blue-400 font-mono text-[10px] mb-3 uppercase tracking-[0.4em]">
           <ShieldCheck size={14} />
           <span>Verified_Credentials_Repository</span>
@@ -108,7 +115,7 @@ export default function Certificates() {
         <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter uppercase">
           Certifi<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">cations</span>
         </h2>
-      </div>
+      </motion.div>
 
       <ExpandableCardGrid items={certificates} columns="lg:grid-cols-2" imageHeightClassName="h-64" />
 

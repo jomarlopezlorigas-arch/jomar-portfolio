@@ -20,10 +20,15 @@ function renderContent(content) {
   return typeof content === "function" ? content() : content;
 }
 
+const modalSectionTransition = {
+  duration: 0.28,
+  ease: "easeOut",
+};
+
 function ExpandableCardGrid({
   items,
   columns = "md:grid-cols-2",
-  imageHeightClassName = "h-56",
+  imageHeightClassName = "h-64",
 }) {
   const [activeItem, setActiveItem] = useState(null);
   const modalRef = useRef(null);
@@ -82,8 +87,12 @@ function ExpandableCardGrid({
               <motion.div
                 ref={modalRef}
                 layoutId={`card-${activeItem.id}-${layoutId}`}
-                className="flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#070b12]/95 shadow-[0_24px_120px_rgba(0,0,0,0.6)]"
+                transition={{ type: "spring", stiffness: 160, damping: 20 }}
+                className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#070b12]/95 shadow-[0_24px_120px_rgba(0,0,0,0.6)]"
               >
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.12),transparent_30%)]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
+
                 <motion.div
                   layoutId={`image-${activeItem.id}-${layoutId}`}
                   className="relative h-72 overflow-hidden border-b border-white/10 md:h-80"
@@ -93,10 +102,11 @@ function ExpandableCardGrid({
                     alt={activeItem.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 960px"
-                    className="object-cover object-top"
+                    className={itemImageClassNames(activeItem.modalImageClassName)}
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070b12] via-[#070b12]/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070b12] via-[#070b12]/18 to-transparent" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px] opacity-[0.16]" />
                   <div className="absolute left-4 right-4 top-4 flex items-center justify-between md:left-6 md:right-6">
                     <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-blue-200">
                       {activeItem.eyebrow}
@@ -109,7 +119,12 @@ function ExpandableCardGrid({
 
                 <div className="overflow-y-auto px-5 pb-6 pt-5 md:px-8 md:pb-8 md:pt-6">
                   <div className="flex flex-col gap-5 border-b border-white/10 pb-6 md:flex-row md:items-start md:justify-between">
-                    <div className="space-y-3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={modalSectionTransition}
+                      className="space-y-3"
+                    >
                       <motion.h3
                         layoutId={`title-${activeItem.id}-${layoutId}`}
                         className="text-3xl font-black tracking-tight text-white md:text-4xl"
@@ -132,9 +147,14 @@ function ExpandableCardGrid({
                           </span>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex flex-wrap gap-3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ ...modalSectionTransition, delay: 0.06 }}
+                      className="flex flex-wrap gap-3"
+                    >
                       {activeItem.primaryAction ? (
                         activeItem.primaryAction.href ? (
                           <a
@@ -170,14 +190,14 @@ function ExpandableCardGrid({
                           </span>
                         )
                       ) : null}
-                    </div>
+                    </motion.div>
                   </div>
 
                   <motion.div
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 12 }}
-                    transition={{ duration: 0.22 }}
+                    transition={{ duration: 0.26, delay: 0.12 }}
                     className="space-y-6 pt-6 text-sm leading-relaxed text-gray-300 md:text-base"
                   >
                     {renderContent(activeItem.content)}
@@ -212,9 +232,12 @@ function ExpandableCardGrid({
             }}
             role="button"
             tabIndex={0}
-            className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#070b12]/80 text-left shadow-[0_20px_70px_rgba(0,0,0,0.45)] transition-colors hover:border-blue-400/30"
+            whileTap={{ scale: 0.995 }}
+            className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#070b12]/80 text-left shadow-[0_20px_70px_rgba(0,0,0,0.45)] transition-colors hover:border-blue-400/30"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.14),transparent_30%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-x-[-20%] top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/75 to-transparent opacity-0 transition-all duration-700 group-hover:translate-x-[25%] group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:44px_44px] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="relative z-10 flex items-center justify-between border-b border-white/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.25em] text-gray-400 md:px-5">
               <span>{item.eyebrow}</span>
@@ -232,34 +255,35 @@ function ExpandableCardGrid({
                 alt={item.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-top transition duration-700 group-hover:scale-105"
+                className={itemImageClassNames(item.cardImageClassName)}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#070b12] via-[#070b12]/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070b12] via-[#070b12]/12 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#070b12]/95 to-transparent" />
             </motion.div>
 
-            <div className="relative z-10 space-y-4 p-5 md:p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div>
+            <div className="relative z-10 flex flex-1 flex-col space-y-4 p-5 md:p-6">
+              <div className="flex items-start gap-4">
+                <div className="min-w-0 flex-1">
                   <motion.h3
                     layoutId={`title-${item.id}-${layoutId}`}
-                    className="text-xl font-black tracking-tight text-white transition-colors group-hover:text-blue-200"
+                    className="text-xl font-black leading-tight tracking-tight text-white transition-colors group-hover:text-blue-200 md:text-[1.7rem]"
                   >
                     {item.title}
                   </motion.h3>
                   <motion.p
                     layoutId={`description-${item.id}-${layoutId}`}
-                    className="mt-2 text-sm leading-relaxed text-gray-400"
+                    className="mt-3 line-clamp-4 text-sm leading-relaxed text-gray-400"
                   >
                     {item.description}
                   </motion.p>
                 </div>
 
-                <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white transition group-hover:border-blue-300/30 group-hover:bg-blue-500/10 group-hover:text-blue-100">
+                <div className="shrink-0 whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-white transition group-hover:border-blue-300/30 group-hover:bg-blue-500/10 group-hover:text-blue-100">
                   {item.primaryAction?.label ?? "Expand"}
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {item.tags?.map((tag) => (
                   <span
                     key={tag}
@@ -270,11 +294,11 @@ function ExpandableCardGrid({
                 ))}
               </div>
 
-              <div className="flex items-center justify-between border-t border-white/10 pt-4">
-                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500">
+              <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+                <span className="min-w-0 flex-1 truncate font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500">
                   {item.footer}
                 </span>
-                <span className="inline-flex items-center text-sm font-semibold text-blue-200">
+                <span className="inline-flex shrink-0 items-center whitespace-nowrap text-sm font-semibold text-blue-200">
                   Expand
                   <ArrowUpRight size={16} className="ml-2 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>
@@ -285,6 +309,10 @@ function ExpandableCardGrid({
       </div>
     </>
   );
+}
+
+function itemImageClassNames(customClassName = "") {
+  return `object-cover object-center transition duration-700 group-hover:scale-105 ${customClassName}`.trim();
 }
 
 export default ExpandableCardGrid;
