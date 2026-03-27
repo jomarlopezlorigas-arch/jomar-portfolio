@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import useSafeReducedMotion from "../../hooks/use-safe-reduced-motion";
 
 const linePositions = [6, 14, 22, 31, 41, 52, 64, 74, 84, 93];
 
 export function BackgroundLines({ children, className = "" }) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
 
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>

@@ -1,75 +1,97 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import {
-  Blocks,
-  Cloud,
-  Cpu,
-  Layers3,
-  Workflow,
-} from "lucide-react";
-import {
-  FaDatabase,
-  FaNetworkWired,
-  FaReact,
-  FaServer,
-} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Blocks, Cloud, Layers3, Sparkles, Workflow } from "lucide-react";
+import { FaDatabase, FaReact, FaServer } from "react-icons/fa";
 import {
   SiFirebase,
   SiNodedotjs,
+  SiPostgresql,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
+import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
+import { SectionReveal } from "./ui/section-reveal";
 
-const capabilityStats = [
+const quickStats = [
   { label: "Tools Practiced", value: "06+", icon: <Layers3 size={16} /> },
   { label: "Main Stack", value: "Next + Node", icon: <Blocks size={16} /> },
   { label: "Cloud Basics", value: "Firebase / GCP", icon: <Cloud size={16} /> },
 ];
 
-const skillCategories = [
+const skillGroups = [
   {
     id: "frontend",
-    title: "Frontend Skills",
-    eyebrow: "Interface building",
-    icon: <FaReact className="text-sky-300" />,
-    accent: "from-sky-400/30 via-cyan-300/15 to-transparent",
-    borderAccent: "border-sky-300/20",
+    eyebrow: "Frontend",
+    title: "Building interfaces I can keep improving.",
     summary:
-      "The tools I use to build responsive interfaces and practice creating cleaner user experiences.",
-    tools: ["React / Next.js", "TypeScript", "Tailwind CSS", "React Native"],
-    metrics: [
-      { label: "UI Systems", value: "92%" },
-      { label: "Confidence", value: "88%" },
-    ],
+      "These are the tools I use most when creating responsive pages, cleaner layouts, and student projects on the web.",
+    accent:
+      "from-cyan-400/25 via-sky-300/10 to-transparent",
+    chips: ["Responsive UI", "Component practice", "Clean layouts"],
     skills: [
-      { name: "React / Next.js", level: 92, icon: <FaReact className="text-sky-300" /> },
-      { name: "TypeScript", level: 88, icon: <SiTypescript className="text-blue-400" /> },
-      { name: "Tailwind CSS", level: 95, icon: <SiTailwindcss className="text-cyan-300" /> },
-      { name: "React Native", level: 82, icon: <FaReact className="text-blue-300" /> },
+      {
+        name: "React",
+        note: "Reusable components",
+        icon: <FaReact className="text-[2rem] text-sky-300" />,
+      },
+      {
+        name: "TypeScript",
+        note: "Safer code structure",
+        icon: <SiTypescript className="text-[2rem] text-blue-400" />,
+      },
+      {
+        name: "Tailwind CSS",
+        note: "Fast styling workflow",
+        icon: <SiTailwindcss className="text-[2rem] text-cyan-300" />,
+      },
     ],
   },
   {
     id: "backend",
-    title: "Backend Skills",
-    eyebrow: "Logic and setup",
-    icon: <FaServer className="text-emerald-300" />,
-    accent: "from-emerald-400/30 via-teal-300/15 to-transparent",
-    borderAccent: "border-emerald-300/20",
+    eyebrow: "Backend",
+    title: "Learning how the logic works behind the screen.",
     summary:
-      "The backend and system topics I&apos;ve been learning through projects, school work, and practice builds.",
-    tools: ["Firebase / GCP", "Node.js", "System Design", "API Gateway"],
-    metrics: [
-      { label: "Cloud Practice", value: "90%" },
-      { label: "API Practice", value: "88%" },
-    ],
+      "I use these tools to practice data handling, backend structure, deployment basics, and connecting frontend to backend.",
+    accent:
+      "from-emerald-400/25 via-teal-300/10 to-transparent",
+    chips: ["API practice", "Database basics", "Project setup"],
     skills: [
-      { name: "Firebase / GCP", level: 90, icon: <SiFirebase className="text-yellow-400" /> },
-      { name: "Node.js Engine", level: 85, icon: <SiNodedotjs className="text-green-400" /> },
-      { name: "System Design", level: 80, icon: <FaDatabase className="text-cyan-300" /> },
-      { name: "API Gateway", level: 88, icon: <FaNetworkWired className="text-slate-300" /> },
+      {
+        name: "Node.js",
+        note: "Backend practice",
+        icon: <SiNodedotjs className="text-[2rem] text-green-400" />,
+      },
+      {
+        name: "Firebase",
+        note: "Auth and cloud tools",
+        icon: <SiFirebase className="text-[2rem] text-yellow-400" />,
+      },
+      {
+        name: "PostgreSQL",
+        note: "Database learning",
+        icon: <SiPostgresql className="text-[2rem] text-sky-300" />,
+      },
     ],
+  },
+];
+
+const extraSkills = [
+  {
+    name: "System Design",
+    icon: <FaDatabase className="text-[1.5rem] text-cyan-300" />,
+  },
+  {
+    name: "Backend Setup",
+    icon: <FaServer className="text-[1.5rem] text-emerald-300" />,
+  },
+  {
+    name: "Workflow",
+    icon: <Workflow size={24} className="text-cyan-200" />,
+  },
+  {
+    name: "UI Practice",
+    icon: <Sparkles size={24} className="text-sky-300" />,
   },
 ];
 
@@ -77,46 +99,35 @@ function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function SkillMeter({ skill, index, shouldReduceMotion }) {
+function LogoTile({ skill, index, shouldReduceMotion }) {
   return (
     <motion.div
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
-      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="rounded-[1.4rem] border border-white/10 bg-black/20 p-4 transition duration-300 hover:border-white/20 hover:bg-white/[0.04]"
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 18, scale: 0.96 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      whileHover={shouldReduceMotion ? undefined : { y: -6, scale: 1.02 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.35, delay: index * 0.06 }}
+      className="group rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_14px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl"
     >
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <span className="text-lg">{skill.icon}</span>
-          <div>
-            <p className="text-sm font-semibold text-white">{skill.name}</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/35">
-              Capability score
-            </p>
-          </div>
+      <div className="flex items-start justify-between gap-4">
+        <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+          {skill.icon}
         </div>
-        <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
-          {skill.level}%
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/30">
+          skill
         </span>
       </div>
 
-      <div className="relative h-2 overflow-hidden rounded-full bg-white/8">
-        <motion.div
-          initial={shouldReduceMotion ? false : { scaleX: 0 }}
-          whileInView={shouldReduceMotion ? undefined : { scaleX: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, delay: 0.08 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-          style={{ width: `${skill.level}%`, transformOrigin: "left center" }}
-          className="h-full rounded-full bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 shadow-[0_0_18px_rgba(56,189,248,0.45)]"
-        />
+      <div className="mt-5">
+        <p className="text-base font-semibold text-white">{skill.name}</p>
+        <p className="mt-2 text-sm leading-6 text-gray-400">{skill.note}</p>
       </div>
     </motion.div>
   );
 }
 
 export default function TechSkills() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
 
   return (
     <section id="skills" className="relative mx-auto max-w-7xl overflow-hidden px-6 py-28">
@@ -140,8 +151,8 @@ export default function TechSkills() {
               </span>
             </h2>
             <p className="max-w-2xl text-sm leading-7 text-gray-300 md:text-base">
-              A quick look at the tools and areas I&apos;ve been learning as a
-              fresh graduate building my confidence through real projects.
+              A more visual skills section focused on the tools I use most,
+              with simple motion and logo-based cards instead of loading bars.
             </p>
           </div>
         </div>
@@ -149,139 +160,100 @@ export default function TechSkills() {
 
       <div className="relative z-10 grid gap-6">
         <SectionReveal className="rounded-[2rem] border border-white/10 bg-[#07101b]/90 p-6 shadow-[0_28px_120px_rgba(0,0,0,0.4)] backdrop-blur-xl md:p-8">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-cyan-200/70">
-              <Cpu size={14} />
-              Learning Overview
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="max-w-3xl text-3xl font-black tracking-tight text-white md:text-5xl">
-                Growing my skills in
-                <span className="text-cyan-300"> frontend, backend, and modern tools.</span>
-              </h3>
-              <p className="max-w-3xl text-sm leading-7 text-gray-300 md:text-base">
-                These are the technologies I&apos;ve been using the most while
-                building portfolio work, school projects, and personal practice.
-              </p>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-3">
-              {capabilityStats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
-                  whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: 0.08 + index * 0.07 }}
-                  className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4"
-                >
-                  <div className="flex items-center gap-2 text-cyan-200/80">
-                    {stat.icon}
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
-                      {stat.label}
-                    </span>
-                  </div>
-                  <p className="mt-4 text-lg font-bold text-white">{stat.value}</p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {quickStats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.35, delay: index * 0.08 }}
+                className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4"
+              >
+                <div className="flex items-center gap-2 text-cyan-200/80">
+                  {stat.icon}
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                    {stat.label}
+                  </span>
+                </div>
+                <p className="mt-4 text-lg font-bold text-white">{stat.value}</p>
+              </motion.div>
+            ))}
           </div>
         </SectionReveal>
 
-        <StaggerReveal className="grid gap-6" staggerChildren={0.08}>
-          {skillCategories.map((category) => (
-            <StaggerItem key={category.id}>
-              <motion.article
-                whileHover={shouldReduceMotion ? undefined : { y: -4 }}
-                transition={{ duration: 0.28 }}
-                className={cn(
-                  "group relative overflow-hidden rounded-[2rem] border bg-[#060b14]/90 p-6 shadow-[0_24px_100px_rgba(0,0,0,0.38)] backdrop-blur-xl md:p-7",
-                  category.borderAccent
-                )}
-              >
-                <div className={cn("pointer-events-none absolute inset-0 bg-gradient-to-br opacity-100", category.accent)} />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_28%,transparent_72%,rgba(255,255,255,0.03))]" />
-
-                <div className="relative space-y-6">
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div className="space-y-3">
-                      <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2">
-                        <span className="text-lg">{category.icon}</span>
-                        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/65">
-                          {category.eyebrow}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-black tracking-tight text-white">
-                          {category.title}
-                        </h3>
-                        <p className="mt-3 max-w-xl text-sm leading-7 text-gray-300">
-                          {category.summary}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="grid min-w-[150px] gap-3">
-                      {category.metrics.map((metric) => (
-                        <div
-                          key={metric.label}
-                          className="rounded-[1.2rem] border border-white/10 bg-black/20 px-4 py-3 text-right"
-                        >
-                          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">
-                            {metric.label}
-                          </p>
-                          <p className="mt-2 text-lg font-bold text-white">{metric.value}</p>
-                        </div>
-                      ))}
-                    </div>
+        <div className="grid gap-6 xl:grid-cols-2">
+          {skillGroups.map((group) => (
+            <SectionReveal
+              key={group.id}
+              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#060b14]/90 p-6 shadow-[0_24px_100px_rgba(0,0,0,0.38)] backdrop-blur-xl md:p-7"
+            >
+              <div className={cn("pointer-events-none absolute inset-0 bg-gradient-to-br", group.accent)} />
+              <div className="relative">
+                <div className="mb-6 space-y-4">
+                  <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/65">
+                      {group.eyebrow}
+                    </span>
                   </div>
 
-              <div className="flex flex-wrap gap-2">
-                    {category.tools.map((tool) => (
+                  <div>
+                    <h3 className="max-w-xl text-2xl font-black tracking-tight text-white md:text-3xl">
+                      {group.title}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-gray-300">
+                      {group.summary}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {group.chips.map((chip) => (
                       <span
-                        key={tool}
-                        className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65 transition duration-300 group-hover:border-white/20 group-hover:text-white/85"
+                        key={chip}
+                        className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60"
                       >
-                        {tool}
+                        {chip}
                       </span>
                     ))}
                   </div>
-
-                  <div className="grid gap-4">
-                    {category.skills.map((skill, index) => (
-                      <SkillMeter
-                        key={skill.name}
-                        skill={skill}
-                        index={index}
-                        shouldReduceMotion={shouldReduceMotion}
-                      />
-                    ))}
-                  </div>
                 </div>
-              </motion.article>
-            </StaggerItem>
-          ))}
-        </StaggerReveal>
-      </div>
 
-      <SectionReveal className="relative z-10 mt-8">
-        <div className="flex flex-wrap items-center gap-3 rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-          {[
-            "Motion tuned for clarity",
-            "Student growth mindset",
-            "Responsive layouts",
-            "Still learning every project",
-          ].map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-white/10 bg-black/20 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-white/60"
-            >
-              {item}
-            </span>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {group.skills.map((skill, index) => (
+                    <LogoTile
+                      key={skill.name}
+                      skill={skill}
+                      index={index}
+                      shouldReduceMotion={shouldReduceMotion}
+                    />
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
           ))}
         </div>
-      </SectionReveal>
+
+        <SectionReveal className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            {extraSkills.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="flex items-center gap-3 rounded-full border border-white/10 bg-black/20 px-4 py-3"
+              >
+                <span>{item.icon}</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+                  {item.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </SectionReveal>
+      </div>
     </section>
   );
 }

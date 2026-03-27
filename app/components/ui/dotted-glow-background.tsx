@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
+import useSafeReducedMotion from "../../hooks/use-safe-reduced-motion";
 
 type DottedGlowBackgroundProps = {
   className?: string;
@@ -40,7 +41,7 @@ export function DottedGlowBackground({
   speedMax = 1.6,
   speedScale = 1,
 }: DottedGlowBackgroundProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
   const dotColor = resolveCssVar(
     colorDarkVar ?? colorLightVar,
     "rgba(148, 163, 184, 0.38)"

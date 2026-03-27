@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Github, Mail, Code2, Terminal, Sparkles } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -15,6 +15,7 @@ import {
 import BackgroundLines from "./ui/background-lines";
 import CyberDefense from "./CyberDefense";
 import SpotlightCard from "./ui/spotlight-card";
+import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
 import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
 
 const floatingBadges = [
@@ -35,7 +36,7 @@ const techStack = [
 export default function Hero() {
   const [isGameActive, setGameActive] = useState(false);
   const photoRef = useRef(null);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
 
   useEffect(() => {
     const tiltNode = photoRef.current;

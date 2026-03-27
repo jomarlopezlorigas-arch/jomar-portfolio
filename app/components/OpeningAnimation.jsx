@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 const loadingNotes = [
@@ -14,7 +15,7 @@ export default function TechCloudIntro() {
   const [progress, setProgress] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const targetText = "JOMAR LORIGAS";
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
   const resolvedProgress = shouldReduceMotion ? 100 : Math.min(progress, 100);
   const resolvedDisplayText = shouldReduceMotion
     ? targetText
