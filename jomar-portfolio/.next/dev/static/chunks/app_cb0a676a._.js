@@ -2071,8 +2071,8 @@ const stats = [
             lineNumber: 27,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0)),
-        value: "3",
-        label: "Live Projects",
+        value: "6",
+        label: "Projects",
         note: "built and deployed for practice"
     },
     {
