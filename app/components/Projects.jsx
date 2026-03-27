@@ -13,13 +13,13 @@ const projects = [
     title: "Code Explainer Workspace",
     subtitle: "Next.js, TypeScript, Supabase",
     description:
-      "A polished code analysis workspace where users can sign in, submit source files, and get structured AI explanations with reusable history across sessions.",
+      "A project I built to help users upload code and get clearer explanations, while also helping me practice full-stack features and AI integration.",
     image: "/Projects/code-explainer-workspace.svg",
     tags: ["Next.js", "TypeScript", "Code Analysis"],
     details: [
-      { label: "Focus", value: "Readable AI-powered code breakdowns" },
-      { label: "System", value: "Secure auth and organized history flow" },
-      { label: "Outcome", value: "A cleaner learning and review workspace" },
+      { label: "Focus", value: "Easy-to-read code explanations" },
+      { label: "Practice", value: "Auth, uploads, and saved history" },
+      { label: "Outcome", value: "A helpful learning workspace" },
     ],
     primaryAction: {
       label: "Launch Site",
@@ -38,13 +38,13 @@ const projects = [
     title: "Guys and Gals Salon Booking Website",
     subtitle: "Booking Platform, Responsive UX",
     description:
-      "A salon booking experience designed to reduce friction for clients through clear service browsing, streamlined scheduling, and a more trustworthy appointment flow.",
+      "A booking website project focused on making the salon experience easier to use, especially for mobile users and first-time visitors.",
     image: "/Projects/Guys and Gals proj.png",
     tags: ["Next.js", "Scheduling", "UI/UX"],
     details: [
-      { label: "Goal", value: "Help clients book faster with less confusion" },
-      { label: "Design", value: "Mobile-first flow with stronger call hierarchy" },
-      { label: "Value", value: "Conversion-friendly reservation experience" },
+      { label: "Goal", value: "Make booking simpler and clearer" },
+      { label: "Design", value: "Mobile-first layout and flow" },
+      { label: "Value", value: "A smoother reservation experience" },
     ],
     primaryAction: {
       label: "Launch Site",
@@ -63,13 +63,13 @@ const projects = [
     title: "Sentra - Head Monitoring System",
     subtitle: "AI Monitoring, Computer Vision Concept",
     description:
-      "An assessment monitoring concept that uses head-position signals as one input for surfacing suspicious behavior patterns during exams and review sessions.",
+      "A concept project exploring how head-position tracking could help support online assessment monitoring and exam review.",
     image: "/Projects/Sentra.png",
     tags: ["AI", "Monitoring System"],
     details: [
-      { label: "Signal", value: "Head orientation tracked in real time" },
-      { label: "Use Case", value: "Support more secure online evaluations" },
-      { label: "Status", value: "Private concept shown as a case study" },
+      { label: "Signal", value: "Head orientation tracking" },
+      { label: "Use Case", value: "Online assessment support" },
+      { label: "Status", value: "Private concept project" },
     ],
     primaryAction: {
       label: "Private Build",
@@ -98,6 +98,7 @@ export default function Projects() {
           <div className="mb-3 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-blue-300">
             <FolderKanban size={14} />
             <span>Active_Project_Archive</span>
+            
           </div>
           <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-6xl">
             Featured{" "}
@@ -108,9 +109,8 @@ export default function Projects() {
         </div>
 
         <p className="max-w-xl text-sm leading-relaxed text-gray-400 md:text-base">
-          A more cinematic project showcase with rotating focus states, richer
-          metadata, and faster scanning for visitors who want to understand the
-          work quickly.
+          A collection of projects I built to practice my skills, solve real
+          problems, and keep learning through hands-on experience.
         </p>
       </motion.div>
 

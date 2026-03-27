@@ -13,13 +13,13 @@ const certificates = [
     title: "Introduction to SQL",
     subtitle: "Simplilearn Credential",
     description:
-      "A foundational database certificate focused on SQL querying, relational thinking, and building confidence with structured data workflows.",
+      "A beginner-friendly SQL certificate that helped me strengthen my understanding of queries, tables, and relational databases.",
     image: "/Certificates/sqlcert.jpg",
     tags: ["SQL", "Databases", "Queries"],
     details: [
       { label: "Issuer", value: "Simplilearn" },
       { label: "Credential", value: "CERT-SQL-882" },
-      { label: "Coverage", value: "Queries, tables, and relational basics" },
+      { label: "Coverage", value: "Queries, tables, and SQL basics" },
     ],
     primaryAction: {
       label: "Open Certificate",
@@ -38,13 +38,13 @@ const certificates = [
     title: "Build CMS Blog using PHP & MySQL",
     subtitle: "Udemy Credential",
     description:
-      "A practical certificate centered on building content-driven systems with PHP and MySQL, including CRUD logic and CMS-style workflows.",
+      "A practical course certificate where I learned more about PHP, MySQL, CRUD features, and simple CMS-style development.",
     image: "/Certificates/PHP.jpg",
     tags: ["PHP", "MySQL", "CMS"],
     details: [
       { label: "Issuer", value: "Udemy" },
       { label: "Credential", value: "CERT-PHP-441" },
-      { label: "Coverage", value: "Backend logic, persistence, and admin flow" },
+      { label: "Coverage", value: "PHP, MySQL, CRUD, and admin flow" },
     ],
     primaryAction: {
       label: "Open Certificate",
@@ -74,7 +74,7 @@ export default function Certificates() {
       >
         <div className="flex items-center justify-center lg:justify-start gap-2 text-blue-400 font-mono text-[10px] mb-3 uppercase tracking-[0.4em]">
           <ShieldCheck size={14} />
-          <span>Verified_Credentials_Repository</span>
+          <span>Learning_Certificates</span>
         </div>
         <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter uppercase">
           Certifi<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">cations</span>
@@ -92,9 +92,9 @@ export default function Certificates() {
       {/* Vault Footer Info */}
       <div className="mt-12 text-center">
         <p className="font-mono text-[10px] text-gray-600 uppercase tracking-widest">
-          Repository Integrity Check:{" "}
-          <span className="text-green-500/50">Passed</span>
-          <span className="text-gray-600"> | Indexing Complete</span>
+          Learning Progress:{" "}
+          <span className="text-green-500/50">Ongoing</span>
+          <span className="text-gray-600"> | More to come</span>
         </p>
       </div>
     </section>

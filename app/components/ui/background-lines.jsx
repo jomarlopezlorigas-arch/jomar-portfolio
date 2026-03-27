@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const linePositions = [6, 14, 22, 31, 41, 52, 64, 74, 84, 93];
 
 export function BackgroundLines({ children, className = "" }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>
       <div
@@ -19,24 +21,36 @@ export function BackgroundLines({ children, className = "" }) {
               key={left}
               className="absolute top-[-15%] h-[130%] w-px bg-gradient-to-b from-transparent via-blue-200/45 to-transparent"
               style={{ left: `${left}%` }}
-              animate={{
-                opacity: [0.12, 0.65, 0.12],
-                scaleY: [0.96, 1.02, 0.96],
-              }}
-              transition={{
-                duration: 3.8 + index * 0.35,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.18,
-              }}
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      opacity: [0.12, 0.65, 0.12],
+                      scaleY: [0.96, 1.02, 0.96],
+                    }
+              }
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      duration: 3.8 + index * 0.35,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.18,
+                    }
+              }
             />
           ))}
         </div>
 
         <motion.div
           className="absolute inset-y-0 left-[-20%] w-[30%] bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.16),transparent)] blur-xl"
-          animate={{ x: ["0%", "420%"] }}
-          transition={{ duration: 7.5, repeat: Infinity, ease: "linear" }}
+          animate={shouldReduceMotion ? undefined : { x: ["0%", "420%"] }}
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { duration: 7.5, repeat: Infinity, ease: "linear" }
+          }
         />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:96px_100%] opacity-50" />

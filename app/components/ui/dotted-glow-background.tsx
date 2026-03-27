@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { CSSProperties } from "react";
 
 type DottedGlowBackgroundProps = {
@@ -40,6 +40,7 @@ export function DottedGlowBackground({
   speedMax = 1.6,
   speedScale = 1,
 }: DottedGlowBackgroundProps) {
+  const shouldReduceMotion = useReducedMotion();
   const dotColor = resolveCssVar(
     colorDarkVar ?? colorLightVar,
     "rgba(148, 163, 184, 0.38)"
@@ -74,16 +75,24 @@ export function DottedGlowBackground({
         style={{
           background: `radial-gradient(circle, ${glowPrimary} 0%, transparent 70%)`,
         }}
-        animate={{
-          x: [0, 90, -30, 0],
-          y: [0, 50, 110, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={{
-          duration: slowDuration,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : {
+                x: [0, 90, -30, 0],
+                y: [0, 50, 110, 0],
+                scale: [1, 1.1, 0.95, 1],
+              }
+        }
+        transition={
+          shouldReduceMotion
+            ? undefined
+            : {
+                duration: slowDuration,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }
+        }
       />
 
       <motion.div
@@ -91,16 +100,24 @@ export function DottedGlowBackground({
         style={{
           background: `radial-gradient(circle, ${glowSecondary} 0%, transparent 72%)`,
         }}
-        animate={{
-          x: [0, -80, 20, 0],
-          y: [0, -70, -10, 0],
-          scale: [1, 0.92, 1.08, 1],
-        }}
-        transition={{
-          duration: fastDuration,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : {
+                x: [0, -80, 20, 0],
+                y: [0, -70, -10, 0],
+                scale: [1, 0.92, 1.08, 1],
+              }
+        }
+        transition={
+          shouldReduceMotion
+            ? undefined
+            : {
+                duration: fastDuration,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }
+        }
       />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_32%),radial-gradient(circle_at_50%_120%,rgba(56,189,248,0.12),transparent_38%)]" />

@@ -4,43 +4,94 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
 
+const navLinks = [
+  { name: "About", id: "about" },
+  { name: "Projects", id: "projects" },
+  { name: "Certificates", id: "certificates" },
+];
+
+function SystemClock() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      setTime(
+        new Date().toLocaleTimeString([], {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    };
+
+    updateTime();
+    const timer = window.setInterval(updateTime, 1000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="hidden sm:block font-mono text-[10px] text-gray-400 tracking-widest bg-white/5 px-3 py-1.5 rounded border border-white/10">
+      {time} <span className="animate-pulse">_</span>
+    </div>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
-  const [time, setTime] = useState("");
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' }));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+    let ticking = false;
 
-  useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      const sections = ["about", "projects", "certificates"];
-      const currentSection = sections.find((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          return rect.top <= 150 && rect.bottom >= 150;
-        }
-        return false;
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 20);
+        ticking = false;
       });
-      if (currentSection) setActive(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "About", id: "about" },
-    { name: "Projects", id: "projects" },
-    { name: "Certificates", id: "certificates" },
-  ];
+  useEffect(() => {
+    const sections = navLinks
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!sections.length) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries[0]?.target?.id) {
+          setActive(visibleEntries[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: [0.2, 0.4, 0.6],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav
@@ -86,9 +137,7 @@ export default function Navbar() {
 
         {/* RIGHT: SYSTEM TIME & TOGGLE */}
         <div className="flex items-center gap-4">
-          <div className="hidden sm:block font-mono text-[10px] text-gray-400 tracking-widest bg-white/5 px-3 py-1.5 rounded border border-white/10">
-            {time} <span className="animate-pulse">_</span>
-          </div>
+          <SystemClock />
 
           <button
             className="p-2 rounded-lg bg-white/5 border border-white/10 md:hidden text-white hover:bg-white/10 transition-colors"

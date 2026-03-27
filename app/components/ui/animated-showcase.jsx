@@ -3,10 +3,45 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Lock } from "lucide-react";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
+}
+
+function ActionButton({ action, primary = false }) {
+  if (!action?.href) {
+    return (
+      <span
+        className={cn(
+          "inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.18em]",
+          primary
+            ? "border-white/10 bg-white/8 text-gray-500"
+            : "border-white/10 bg-transparent text-gray-500"
+        )}
+      >
+        <Lock size={14} />
+        {action?.label || "Unavailable"}
+      </span>
+    );
+  }
+
+  return (
+    <a
+      href={action.href}
+      target="_blank"
+      rel="noreferrer"
+      className={cn(
+        "inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] transition",
+        primary
+          ? "border-cyan-300/30 bg-cyan-400/15 text-cyan-100 hover:border-cyan-200/50 hover:bg-cyan-400/20"
+          : "border-white/10 bg-transparent text-white/85 hover:border-white/25 hover:bg-white/5"
+      )}
+    >
+      <ExternalLink size={14} />
+      {action.label}
+    </a>
+  );
 }
 
 export default function AnimatedShowcase({
@@ -131,6 +166,11 @@ export default function AnimatedShowcase({
               <p className="max-w-xl text-sm leading-7 text-gray-300 md:text-base">
                 {activeItem.description}
               </p>
+
+              <div className="flex flex-wrap gap-3">
+                <ActionButton action={activeItem.primaryAction} primary />
+                <ActionButton action={activeItem.secondaryAction} />
+              </div>
 
               <div className="grid gap-3 sm:grid-cols-3">
                 {activeItem.details?.map((detail) => (

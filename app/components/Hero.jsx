@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { Github, Mail, Code2, Terminal, Sparkles } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -18,40 +18,44 @@ import SpotlightCard from "./ui/spotlight-card";
 import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
 
 const floatingBadges = [
-  "Motion-first UI",
-  "Production systems",
-  "Cloud-ready builds",
+  "Student developer",
+  "Still learning",
+  "Building real projects",
+];
+
+const techStack = [
+  { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+  { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
+  { name: "React Native", icon: <FaReact className="text-blue-400" /> },
 ];
 
 export default function Hero() {
   const [isGameActive, setGameActive] = useState(false);
   const photoRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const tiltNode = photoRef.current;
+    const canUseTilt =
+      tiltNode &&
+      !shouldReduceMotion &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    if (tiltNode) {
+    if (canUseTilt) {
       VanillaTilt.init(tiltNode, {
-        max: 12,
-        speed: 450,
-        glare: true,
-        "max-glare": 0.14,
-        scale: 1.03,
-        gyroscope: true,
+        max: 8,
+        speed: 300,
+        glare: false,
+        scale: 1.015,
+        gyroscope: false,
       });
     }
 
     return () => tiltNode?.vanillaTilt?.destroy();
-  }, []);
-
-  const techStack = [
-    { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-    { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-    { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
-    { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
-    { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
-    { name: "React Native", icon: <FaReact className="text-blue-400" /> },
-  ];
+  }, [shouldReduceMotion]);
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent px-6 pt-24">
@@ -60,13 +64,21 @@ export default function Hero() {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
           <motion.div
             className="absolute left-[-10%] top-[-12%] h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]"
-            animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
-            transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+            animate={shouldReduceMotion ? undefined : { x: [0, 40, 0], y: [0, 30, 0] }}
+            transition={
+              shouldReduceMotion
+                ? undefined
+                : { repeat: Infinity, duration: 10, ease: "easeInOut" }
+            }
           />
           <motion.div
             className="absolute bottom-[-10%] right-[-5%] h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px]"
-            animate={{ x: [0, -35, 0], y: [0, -25, 0] }}
-            transition={{ repeat: Infinity, duration: 9, ease: "easeInOut" }}
+            animate={shouldReduceMotion ? undefined : { x: [0, -35, 0], y: [0, -25, 0] }}
+            transition={
+              shouldReduceMotion
+                ? undefined
+                : { repeat: Infinity, duration: 9, ease: "easeInOut" }
+            }
           />
         </div>
 
@@ -86,7 +98,7 @@ export default function Hero() {
                   <div className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1.5 shadow-[0_0_30px_rgba(37,99,235,0.15)]">
                     <Code2 size={14} className="mr-2 inline" />
                     <span className="tracking-widest uppercase">
-                      Full_Stack_Engineer
+                      IT_Graduate
                     </span>
                   </div>
                 </div>
@@ -97,8 +109,12 @@ export default function Hero() {
                   {floatingBadges.map((badge, index) => (
                     <motion.div
                       key={badge}
-                      animate={{ y: [0, -4, 0] }}
-                      transition={{ repeat: Infinity, duration: 3 + index * 0.5, ease: "easeInOut" }}
+                      animate={shouldReduceMotion ? undefined : { y: [0, -4, 0] }}
+                      transition={
+                        shouldReduceMotion
+                          ? undefined
+                          : { repeat: Infinity, duration: 3 + index * 0.5, ease: "easeInOut" }
+                      }
                       className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-gray-300"
                     >
                       {badge}
@@ -109,7 +125,7 @@ export default function Hero() {
 
               <StaggerItem>
                 <h1 className="relative z-30 mb-6 text-5xl font-black leading-[0.9] tracking-tighter text-white md:text-7xl">
-                  Engineering <br />
+                  Building <br />
                   <span
                     onClick={(event) => {
                       event.stopPropagation();
@@ -124,7 +140,7 @@ export default function Hero() {
                           : "group-hover:brightness-125"
                       }`}
                     >
-                      {isGameActive ? "SYSTEM_BREACH_DETECTED" : "Scalable Systems"}
+                      {isGameActive ? "SYSTEM_BREACH_DETECTED" : "My Skills Step by Step"}
                     </span>
 
                     <span className="absolute -top-6 left-0 whitespace-nowrap rounded border border-red-500/30 bg-black/90 px-2 py-0.5 font-mono text-[10px] text-red-500 opacity-0 transition-opacity pointer-events-none group-hover:opacity-100">
@@ -137,8 +153,9 @@ export default function Hero() {
               <StaggerItem>
                 <p className="max-w-2xl border-l-2 border-white/10 pl-6 text-lg font-light leading-relaxed text-gray-400 md:text-xl">
                   I&apos;m <span className="font-medium text-white">Jomar Lorigas</span>.
-                  I bridge the gap between complex IT infrastructure and
-                  high-performance user experiences with polished, production-ready interfaces.
+                  I&apos;m a fresh Information Technology graduate who enjoys
+                  learning by building websites, exploring full-stack tools,
+                  and improving my skills through real projects.
                 </p>
               </StaggerItem>
 
@@ -169,6 +186,7 @@ export default function Hero() {
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       <Terminal size={18} /> Initialize CV
+                      
                     </span>
                     <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
                   </a>
@@ -197,20 +215,28 @@ export default function Hero() {
           <SectionReveal className="relative z-10 flex justify-center lg:col-span-5" delay={0.12} scale={0.98}>
             <div className="relative w-full max-w-[420px]">
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 4.6, ease: "easeInOut" }}
+                animate={shouldReduceMotion ? undefined : { y: [0, -10, 0] }}
+                transition={
+                  shouldReduceMotion
+                    ? undefined
+                    : { repeat: Infinity, duration: 4.6, ease: "easeInOut" }
+                }
                 className="absolute -left-6 top-10 hidden rounded-2xl border border-cyan-400/15 bg-cyan-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-100 shadow-[0_18px_50px_rgba(8,145,178,0.2)] lg:block"
               >
                 <Sparkles size={14} className="mb-2" />
-                Aceternity-style motion
+                Learning by building
               </motion.div>
 
               <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut", delay: 0.5 }}
+                animate={shouldReduceMotion ? undefined : { y: [0, 8, 0] }}
+                transition={
+                  shouldReduceMotion
+                    ? undefined
+                    : { repeat: Infinity, duration: 4.2, ease: "easeInOut", delay: 0.5 }
+                }
                 className="absolute -right-4 bottom-10 hidden rounded-2xl border border-fuchsia-400/15 bg-fuchsia-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-fuchsia-100 shadow-[0_18px_50px_rgba(168,85,247,0.2)] lg:block"
               >
-                System-first storytelling
+                Growing one project at a time
               </motion.div>
 
               <SpotlightCard className="p-4">

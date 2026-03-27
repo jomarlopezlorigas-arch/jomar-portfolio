@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import OpeningAnimation from "./components/OpeningAnimation";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -11,31 +11,44 @@ import Certificates from "./components/Certificates";
 import { DottedGlowBackground } from "./components/ui/dotted-glow-background";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
 
-  const portfolioBackground = (
-    <DottedGlowBackground
-      className="pointer-events-none fixed inset-0 -z-10"
-      opacity={0.9}
-      gap={18}
-      radius={1.35}
-      colorDarkVar="--color-neutral-500"
-      glowColorDarkVar="--color-sky-800"
-      glowColorLightVar="--color-neutral-600"
-      backgroundOpacity={0.96}
-      speedMin={0.35}
-      speedMax={1.1}
-      speedScale={1}
-    />
+    return !window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 768px)").matches;
+  });
+
+  const portfolioBackground = useMemo(
+    () => (
+      <DottedGlowBackground
+        className="pointer-events-none fixed inset-0 -z-10"
+        opacity={0.9}
+        gap={18}
+        radius={1.35}
+        colorDarkVar="--color-neutral-500"
+        glowColorDarkVar="--color-sky-800"
+        glowColorLightVar="--color-neutral-600"
+        backgroundOpacity={0.96}
+        speedMin={0.35}
+        speedMax={1.1}
+        speedScale={1}
+      />
+    ),
+    []
   );
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // animation duration
+    if (!loading) {
+      return undefined;
+    }
 
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = window.setTimeout(() => {
+      setLoading(false);
+    }, 1200);
+
+    return () => window.clearTimeout(timer);
+  }, [loading]);
 
   if (loading) {
     return (

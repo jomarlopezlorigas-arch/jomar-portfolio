@@ -20,35 +20,35 @@ const stats = [
   {
     icon: <FaServer className="text-cyan-300" />,
     value: "4+",
-    label: "Years Building",
-    note: "production-minded systems",
+    label: "Years Learning",
+    note: "growing through school and projects",
   },
   {
     icon: <FaCodeBranch className="text-blue-300" />,
-    value: "15+",
-    label: "Deployments",
-    note: "shipped across real projects",
+    value: "6",
+    label: "Projects",
+    note: "built and deployed for practice",
   },
   {
     icon: <FaNetworkWired className="text-fuchsia-300" />,
-    value: "99.9%",
-    label: "Uptime Focus",
-    note: "reliability-first thinking",
+    value: "90%",
+    label: "Learning Focus",
+    note: "always improving step by step",
   },
 ];
 
 const capabilityCards = [
   {
-    title: "System Design",
-    body: "I approach products as systems, not isolated screens, so architecture, maintainability, and clarity stay aligned from the start.",
+    title: "Curious Builder",
+    body: "I like understanding how a project works from frontend to backend, so I can keep learning how the pieces connect.",
   },
   {
-    title: "Scalable Delivery",
-    body: "From database structure to frontend composition, I build with future growth, team handoff, and operational stability in mind.",
+    title: "Hands-On Practice",
+    body: "Most of my growth comes from building actual projects, trying new tools, and improving the parts that need work.",
   },
   {
-    title: "Secure Execution",
-    body: "Authentication, environment setup, and production discipline are part of the implementation, not afterthoughts layered on later.",
+    title: "Student Mindset",
+    body: "I&apos;m still early in my journey, so I stay open to feedback, keep practicing, and treat every build as a learning experience.",
   },
 ];
 
@@ -75,16 +75,16 @@ export default function About() {
             <StaggerItem>
               <div className="max-w-3xl space-y-5">
                 <h2 className="text-4xl font-black leading-[0.92] tracking-tight text-white md:text-6xl">
-                  I build digital products
+                  I build digital projects
                   <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-400 bg-clip-text text-transparent">
-                    with system-level thinking.
+                    while learning every step.
                   </span>
                 </h2>
                 <p className="max-w-2xl text-lg leading-8 text-gray-300 md:text-xl">
                   I&apos;m <span className="font-semibold text-white">Jomar Lorigas</span>,
-                  an Information Technology Engineer focused on full-stack
-                  development, infrastructure-aware architecture, and interfaces
-                  that feel polished under real-world pressure.
+                  a recent Information Technology graduate who is still growing
+                  in full-stack development, learning modern tools and systems,
+                  and building clean, user-friendly digital experiences.
                 </p>
               </div>
             </StaggerItem>
@@ -192,10 +192,10 @@ export default function About() {
                         <p>
                           <span className="text-fuchsia-300">const</span> focus = [
                         </p>
-                        <p className="pl-4">&quot;Next.js interfaces&quot;,</p>
-                        <p className="pl-4">&quot;Node.js backends&quot;,</p>
-                        <p className="pl-4">&quot;secure auth flows&quot;,</p>
-                        <p className="pl-4">&quot;scalable data models&quot;</p>
+                        <p className="pl-4">&quot;responsive websites&quot;,</p>
+                        <p className="pl-4">&quot;frontend practice&quot;,</p>
+                        <p className="pl-4">&quot;backend fundamentals&quot;,</p>
+                        <p className="pl-4">&quot;real project experience&quot;</p>
                         <p>];</p>
                       </div>
                     </div>
@@ -206,8 +206,9 @@ export default function About() {
                           Approach
                         </p>
                         <p className="mt-4 text-sm leading-7 text-gray-300">
-                          I connect backend logic, deployment thinking, and
-                          frontend clarity into one cohesive build process.
+                          I&apos;m learning how to connect frontend design,
+                          backend logic, and deployment into projects that feel
+                          clean and useful.
                         </p>
                       </div>
 
@@ -231,10 +232,10 @@ export default function About() {
 
                   <div className="flex items-center justify-between border-t border-white/10 pt-4">
                     <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gray-500">
-                      Available for impactful builds
+                      Open to junior opportunities
                     </p>
                     <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/15 bg-cyan-400/10 px-3 py-1.5 text-[11px] font-semibold text-cyan-100">
-                      Let&apos;s build
+                      Let&apos;s connect
                       <ArrowUpRight size={14} />
                     </span>
                   </div>
