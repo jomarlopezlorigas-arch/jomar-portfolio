@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
-import ExpandableCardGrid from "./ui/expandable-card-grid";
+import AnimatedShowcase from "./ui/animated-showcase";
 
 const certificates = [
   {
@@ -11,11 +11,16 @@ const certificates = [
     status: "ACTIVE",
     statusClassName: "border-green-500/20 bg-green-500/10 text-green-300",
     title: "Introduction to SQL",
+    subtitle: "Simplilearn Credential",
     description:
-      "Foundational database certificate covering SQL querying, relational concepts, and structured data workflows.",
+      "A foundational database certificate focused on SQL querying, relational thinking, and building confidence with structured data workflows.",
     image: "/Certificates/sqlcert.jpg",
-    footer: "ISSUER://SIMPLILEARN",
     tags: ["SQL", "Databases", "Queries"],
+    details: [
+      { label: "Issuer", value: "Simplilearn" },
+      { label: "Credential", value: "CERT-SQL-882" },
+      { label: "Coverage", value: "Queries, tables, and relational basics" },
+    ],
     primaryAction: {
       label: "Open Certificate",
       href: "/Certificates/Sql Cert.pdf",
@@ -24,29 +29,6 @@ const certificates = [
       label: "View PDF",
       href: "/Certificates/Sql Cert.pdf",
     },
-    content: (
-      <div className="space-y-5">
-        <p>
-          This certificate validates my baseline SQL knowledge, including how I
-          structure queries, work with relational data, and reason about clean
-          database operations.
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Issuer
-            </p>
-            <p className="mt-3 text-sm text-gray-300">Simplilearn</p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Credential ID
-            </p>
-            <p className="mt-3 text-sm text-gray-300">CERT-SQL-882</p>
-          </div>
-        </div>
-      </div>
-    ),
   },
   {
     id: "CERT-PHP-441",
@@ -54,11 +36,16 @@ const certificates = [
     status: "ACTIVE",
     statusClassName: "border-green-500/20 bg-green-500/10 text-green-300",
     title: "Build CMS Blog using PHP & MySQL",
+    subtitle: "Udemy Credential",
     description:
-      "Certificate focused on practical PHP and MySQL work for content-driven applications and CRUD-based systems.",
+      "A practical certificate centered on building content-driven systems with PHP and MySQL, including CRUD logic and CMS-style workflows.",
     image: "/Certificates/PHP.jpg",
-    footer: "ISSUER://UDEMY",
     tags: ["PHP", "MySQL", "CMS"],
+    details: [
+      { label: "Issuer", value: "Udemy" },
+      { label: "Credential", value: "CERT-PHP-441" },
+      { label: "Coverage", value: "Backend logic, persistence, and admin flow" },
+    ],
     primaryAction: {
       label: "Open Certificate",
       href: "/Certificates/IMcert.pdf",
@@ -67,29 +54,6 @@ const certificates = [
       label: "View PDF",
       href: "/Certificates/IMcert.pdf",
     },
-    content: (
-      <div className="space-y-5">
-        <p>
-          This coursework focused on building a CMS-style blog with PHP and
-          MySQL, reinforcing server-side logic, persistence, and admin-facing
-          workflow design.
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Issuer
-            </p>
-            <p className="mt-3 text-sm text-gray-300">Udemy</p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Credential ID
-            </p>
-            <p className="mt-3 text-sm text-gray-300">CERT-PHP-441</p>
-          </div>
-        </div>
-      </div>
-    ),
   },
 ];
 
@@ -117,7 +81,13 @@ export default function Certificates() {
         </h2>
       </motion.div>
 
-      <ExpandableCardGrid items={certificates} columns="lg:grid-cols-2" imageHeightClassName="h-64" />
+      <div className="relative z-10">
+        <AnimatedShowcase
+          items={certificates}
+          autoPlay={false}
+          thumbnailGridClassName="md:grid-cols-2"
+        />
+      </div>
 
       {/* Vault Footer Info */}
       <div className="mt-12 text-center">

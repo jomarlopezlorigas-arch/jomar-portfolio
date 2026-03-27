@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FolderKanban } from "lucide-react";
-import ExpandableCardGrid from "./ui/expandable-card-grid";
+import AnimatedShowcase from "./ui/animated-showcase";
 
 const projects = [
   {
@@ -11,13 +11,16 @@ const projects = [
     status: "LIVE",
     statusClassName: "border-green-500/20 bg-green-500/10 text-green-300",
     title: "Code Explainer Workspace",
+    subtitle: "Next.js, TypeScript, Supabase",
     description:
-      "A Next.js and TypeScript workspace that reads code, generates structured analysis, and saves explanation history behind authentication.",
+      "A polished code analysis workspace where users can sign in, submit source files, and get structured AI explanations with reusable history across sessions.",
     image: "/Projects/code-explainer-workspace.svg",
-    cardImageClassName: "scale-[1.08]",
-    modalImageClassName: "scale-[1.03]",
-    footer: "ROOT://REPOSITORIES/CODE_EXPLAINER_WORKSPACE",
     tags: ["Next.js", "TypeScript", "Code Analysis"],
+    details: [
+      { label: "Focus", value: "Readable AI-powered code breakdowns" },
+      { label: "System", value: "Secure auth and organized history flow" },
+      { label: "Outcome", value: "A cleaner learning and review workspace" },
+    ],
     primaryAction: {
       label: "Launch Site",
       href: "https://ai-code-reader.vercel.app/",
@@ -26,53 +29,6 @@ const projects = [
       label: "Open Demo",
       href: "https://ai-code-reader.vercel.app/",
     },
-    content: (
-      <div className="space-y-5">
-        <p>
-          This project is designed as a code explainer workspace where users
-          can sign in, submit source files, and receive structured breakdowns
-          of how the code works. The experience is aimed at making analysis
-          feel approachable, organized, and reusable.
-        </p>
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Auth
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-gray-300">
-              <li>Supabase email and password sign-in flow</li>
-              <li>Simple access point for returning users</li>
-              <li>Workspace-oriented account entry screen</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Explain
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-gray-300">
-              <li>Reads uploaded or pasted code for analysis</li>
-              <li>Supports structured AI-backed explanations</li>
-              <li>Built for clearer learning and review workflows</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              History
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-gray-300">
-              <li>Stores previous explanation results</li>
-              <li>Lets users revisit reusable code insights</li>
-              <li>Keeps analysis sessions organized over time</li>
-            </ul>
-          </div>
-        </div>
-        <p>
-          The UI direction leans into a clean product feel with a soft,
-          high-trust authentication screen and a focused workspace entry point
-          for code reading and analysis tasks.
-        </p>
-      </div>
-    ),
   },
   {
     id: "PROJECT-01",
@@ -80,11 +36,16 @@ const projects = [
     status: "LIVE",
     statusClassName: "border-green-500/20 bg-green-500/10 text-green-300",
     title: "Guys and Gals Salon Booking Website",
+    subtitle: "Booking Platform, Responsive UX",
     description:
-      "A booking flow for salon clients with service browsing, streamlined scheduling, and a cleaner online appointment experience.",
+      "A salon booking experience designed to reduce friction for clients through clear service browsing, streamlined scheduling, and a more trustworthy appointment flow.",
     image: "/Projects/Guys and Gals proj.png",
-    footer: "ROOT://REPOSITORIES/GUYS_AND_GALS",
     tags: ["Next.js", "Scheduling", "UI/UX"],
+    details: [
+      { label: "Goal", value: "Help clients book faster with less confusion" },
+      { label: "Design", value: "Mobile-first flow with stronger call hierarchy" },
+      { label: "Value", value: "Conversion-friendly reservation experience" },
+    ],
     primaryAction: {
       label: "Launch Site",
       href: "https://guys-gals-salon.vercel.app/",
@@ -93,37 +54,6 @@ const projects = [
       label: "Open Demo",
       href: "https://guys-gals-salon.vercel.app/",
     },
-    content: (
-      <div className="space-y-5">
-        <p>
-          This project focuses on making salon reservations faster and clearer
-          for clients. The interface reduces friction around choosing services,
-          checking availability, and confirming appointments.
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Highlights
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-gray-300">
-              <li>Responsive customer-facing booking flow</li>
-              <li>Clear service presentation and call-to-action hierarchy</li>
-              <li>Modern styling built for trust and readability</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-              Focus
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-gray-300">
-              <li>Conversion-friendly scheduling experience</li>
-              <li>Mobile-first portfolio presentation</li>
-              <li>Clean deployment and visual polish</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    ),
   },
   {
     id: "PROJECT-02",
@@ -131,38 +61,24 @@ const projects = [
     status: "PRIVATE",
     statusClassName: "border-amber-500/20 bg-amber-500/10 text-amber-300",
     title: "Sentra - Head Monitoring System",
+    subtitle: "AI Monitoring, Computer Vision Concept",
     description:
-      "An AI-assisted monitoring concept that uses head tracking signals to detect suspicious behavior during assessments.",
+      "An assessment monitoring concept that uses head-position signals as one input for surfacing suspicious behavior patterns during exams and review sessions.",
     image: "/Projects/Sentra.png",
-    footer: "ROOT://REPOSITORIES/SENTRA",
-    tags: ["AI", "Monitoring", "Computer Vision"],
+    tags: ["AI", "Monitoring System"],
+    details: [
+      { label: "Signal", value: "Head orientation tracked in real time" },
+      { label: "Use Case", value: "Support more secure online evaluations" },
+      { label: "Status", value: "Private concept shown as a case study" },
+    ],
     primaryAction: {
       label: "Private Build",
       href: "",
     },
-    content: (
-      <div className="space-y-5">
-        <p>
-          Sentra explores how behavior monitoring can support more secure online
-          evaluation workflows. The concept centers on using head-position data
-          as one signal for flagging unusual activity patterns during tests.
-        </p>
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-200">
-            System Goals
-          </p>
-          <ul className="mt-3 space-y-2 text-sm text-gray-300">
-            <li>Capture head orientation patterns in real time</li>
-            <li>Surface possible cheating indicators for review</li>
-            <li>Package the results in a clear operator dashboard</li>
-          </ul>
-        </div>
-        <p>
-          The public demo link is not available yet, so this card currently
-          acts as an animated case-study preview inside the portfolio.
-        </p>
-      </div>
-    ),
+    secondaryAction: {
+      label: "Case Study Preview",
+      href: "",
+    },
   },
 ];
 
@@ -192,12 +108,13 @@ export default function Projects() {
         </div>
 
         <p className="max-w-xl text-sm leading-relaxed text-gray-400 md:text-base">
-          These cards now expand into a full detail view so the portfolio feels
-          more alive and gives each project more room to explain the work.
+          A more cinematic project showcase with rotating focus states, richer
+          metadata, and faster scanning for visitors who want to understand the
+          work quickly.
         </p>
       </motion.div>
 
-      <ExpandableCardGrid items={projects} columns="lg:grid-cols-2 2xl:grid-cols-3" />
+      <AnimatedShowcase items={projects} thumbnailGridClassName="md:grid-cols-2 xl:grid-cols-3" />
     </section>
   );
 }
