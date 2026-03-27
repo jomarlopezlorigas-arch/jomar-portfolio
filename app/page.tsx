@@ -11,13 +11,8 @@ import Certificates from "./components/Certificates";
 import { DottedGlowBackground } from "./components/ui/dotted-glow-background";
 
 export default function Home() {
-  const [loading, setLoading] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return !window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 768px)").matches;
-  });
+  const [hydrated, setHydrated] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const portfolioBackground = useMemo(
     () => (
@@ -39,18 +34,35 @@ export default function Home() {
   );
 
   useEffect(() => {
-    if (!loading) {
-      return undefined;
-    }
+    let timer;
 
-    const timer = window.setTimeout(() => {
-      setLoading(false);
-    }, 1200);
+    const frame = window.requestAnimationFrame(() => {
+      setHydrated(true);
 
-    return () => window.clearTimeout(timer);
-  }, [loading]);
+      const shouldShowIntro = !window
+        .matchMedia("(prefers-reduced-motion: reduce), (max-width: 768px)")
+        .matches;
 
-  if (loading) {
+      if (!shouldShowIntro) {
+        return;
+      }
+
+      setLoading(true);
+      timer = window.setTimeout(() => {
+        setLoading(false);
+      }, 1200);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+
+      if (timer) {
+        window.clearTimeout(timer);
+      }
+    };
+  }, []);
+
+  if (hydrated && loading) {
     return (
       <div className="relative isolate min-h-screen overflow-hidden">
         {portfolioBackground}
