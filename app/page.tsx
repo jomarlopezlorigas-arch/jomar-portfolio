@@ -34,7 +34,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    let timer;
+    let timer: ReturnType<typeof window.setTimeout> | undefined;
 
     const frame = window.requestAnimationFrame(() => {
       setHydrated(true);
